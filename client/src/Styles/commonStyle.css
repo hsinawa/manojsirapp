@@ -6,8 +6,41 @@
     font-size: 20px;
 }
 
+h2{
+    font-size: 60px;
+}
+
+h3{
+    font-size: 35px;
+}
+
+
+
+/* Offer Section in About Us */
+
+.offersection{
+display: grid;
+grid-template-columns: auto auto;
+margin-top: 10%;
+
+}
+
+.subtext{
+    font-size: 23px;
+    text-align: left;
+    color:'#909090'
+}
+
 @media screen and (max-width:800px) {
+
+    h2{
+        font-size: 50px;
+    }
       
+    h3{
+        font-size: 32px;
+    }
+    
 }
 
 
@@ -19,6 +52,16 @@
     margin-top: 8%;
     font-size: 16px;
 }
+
+h2{
+    font-size: 40px;
+}
+
+h3{
+    font-size: 25px;
+}
+
+
 }
 
 
@@ -30,6 +73,10 @@
     color: rgb(18, 69, 163);
     margin-top: 9%;
     font-size: 12px;
+}
+
+h2{
+    font-size: 30px;
 }
     
 }

@@ -46,7 +46,7 @@ function Navbar() {
               src={logo}
               alt="Concept2Education"
               style={{
-                width: "70px",
+                width: "75px",
                 marginTop:'-20%'
               }}
             />{" "}

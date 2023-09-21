@@ -3,7 +3,8 @@
   "slogan": " Science Meets Understanding",
   "about": {
     "name": "About Us",
-    "text": "We at concept classes are having highly dedicated team presenting a revolutionary website designed to enhance  the learning experience of students in the field of science and maths developed with the expert teachers, proficient in delivering comprehensive and engaging lessons to students. With a deep understanding of scientific concepts and principles, the teachers possess the ability to effectively communicate complex ideas in a clear and concise manner."
+    "text": "We at concept classes are having highly dedicated team presenting a revolutionary website designed to enhance  the learning experience of students in the field of science and maths developed with the expert teachers, proficient in delivering comprehensive and engaging lessons to students. With a deep understanding of scientific concepts and principles, the teachers possess the ability to effectively communicate complex ideas in a clear and concise manner.",
+    "para2": "Concept Classes, founded by Mr. Manoj Kumar in 1999, offers outstanding PCB classes to Class 9th and 10th students. With over two decades of excellence, our passionate educator nurture a love for science, leading to remarkable academic achievements. Join us for a journey of knowledge, innovation, and limitless possibilities."
   },
   "Book": "Book Now",
   "subjects": {
@@ -12,7 +13,10 @@
     "Biology": "Biology"
   },
 
+  "offer": "What We Offer",
+
   "classes": {
+    "name": "Class",
     "IX": "IX",
     "X": "X",
     "XI": "XI",
