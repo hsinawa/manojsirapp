@@ -1,0 +1,21 @@
+{
+  "name": "Concept Classes",
+  "slogan": " Science Meets Understanding",
+  "about": {
+    "name": "About Us",
+    "text": "We at concept classes are having highly dedicated team presenting a revolutionary website designed to enhance  the learning experience of students in the field of science and maths developed with the expert teachers, proficient in delivering comprehensive and engaging lessons to students. With a deep understanding of scientific concepts and principles, the teachers possess the ability to effectively communicate complex ideas in a clear and concise manner."
+  },
+  "Book": "Book Now",
+  "subjects": {
+    "physics": "Physics",
+    "chemistry": "Chemistry",
+    "Biology": "Biology"
+  },
+
+  "classes": {
+    "IX": "IX",
+    "X": "X",
+    "XI": "XI",
+    "XII": "XII"
+  }
+}

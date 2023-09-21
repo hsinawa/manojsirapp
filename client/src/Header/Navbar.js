@@ -4,6 +4,14 @@ import React from "react";
 import "./NavbarStyle.css";
 import logo from "../Images/logo.jpg";
 
+
+//Style
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
+import BackpackIcon from '@mui/icons-material/Backpack';
+
 function Navbar() {
   const admin = JSON.parse(localStorage.getItem("admin"));
 
@@ -51,24 +59,26 @@ function Navbar() {
         style={{ float: "right", marginRight: "-33%" }}
       >
          <a href="/" id="navbar-item">
-          Home
+        <HomeIcon style={{verticalAlign:'-6px'}} />  Home
         </a>
 
         <a href="/about" id="navbar-item">
-          About Us
+        <PersonIcon style={{verticalAlign:'-6px'}} />   About Us
         </a>
        
-        <a href="/find" id="navbar-item">
-          Find Us
-        </a>
+      
         <a href="/contact" id="navbar-item">
-          Contact Us
+        <PermContactCalendarIcon style={{verticalAlign:'-6px'}} />  Contact Us
         </a>
 
         <a href="/results" id="navbar-item">
-          Results
+        <AutoGraphIcon style={{verticalAlign:'-6px'}} />   Results
         </a>
 
+
+        <a href="/find" id="navbar-item">
+        <BackpackIcon style={{verticalAlign:'-6px'}} />  Student Portal
+        </a>
 
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
