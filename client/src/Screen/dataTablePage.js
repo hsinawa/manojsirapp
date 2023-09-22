@@ -121,7 +121,10 @@ const SomeStatistics = () => {
   
     return (
       <div id="parent" >
-          <h3 style={{color:'#002D62'}} > {textData.Statistics.name} </h3>
+          <h3 style={{color:'#002D62', textAlign:'left', marginLeft:'5%'}} > {textData.Statistics.name} </h3>
+          <a href='/results' style={{textDecoration:'none'}} >
+          <h4 style={{color:'#B0E0E6', textAlign:'left', marginLeft:'5%', marginTop:'10px'}} > See More </h4>
+              </a>
           <br/><br/>
         <section className="scorestats">
           <div id="divcounter">

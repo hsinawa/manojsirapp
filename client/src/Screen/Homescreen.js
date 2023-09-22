@@ -7,6 +7,8 @@ import background from '../Images/bg.gif';
 import textData from '../Static/staticText.json'
 import AboutUs from './AboutPage';
 import DataTablePage from './dataTablePage';
+import ContactUsScreen from '../Component/contactScree';
+import Testimonials from '../Component/testimonials';
 
 
 
@@ -22,6 +24,10 @@ const HomeScreen = () => {
 <AboutUs />
 <br/><br/>
 <DataTablePage />
+<br/><br/><br/><br/>
+<Testimonials/>
+<br/><br/>
+<ContactUsScreen />
         </React.Fragment>
     )
 }
