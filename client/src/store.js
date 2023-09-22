@@ -2,10 +2,24 @@ import { combineReducers } from "redux";
 import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
-
+import { PostEnqReducer, GetAllEnqReducer } from "./Reducers/messageReducer";
+import { LoginAdminReducer } from "./Reducers/adminReducer";
+import {
+  PostTrailClassReducer,
+  GetAllTrialClassReducer,
+} from "./Reducers/trialClassReducer";
+import { AddTaskReducer, GetTaskReducer } from "./Reducers/taskReducer";
+import {GetAllresultReducer} from './Reducers/resultReducer'
 
 const FinalReducer = combineReducers({
-
+  GetAllEnqReducer: GetAllEnqReducer,
+  PostEnqReducer: PostEnqReducer,
+  PostTrailClassReducer: PostTrailClassReducer,
+  GetAllTrialClassReducer: GetAllTrialClassReducer,
+  LoginAdminReducer: LoginAdminReducer,
+  AddTaskReducer: AddTaskReducer,
+  GetTaskReducer: GetTaskReducer,
+  GetAllresultReducer:GetAllresultReducer
 });
 
 const InitialState = {};

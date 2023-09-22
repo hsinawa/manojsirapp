@@ -32,6 +32,10 @@
   },
 
   "offer": "What We Offer",
+  "ContactUs": {
+    "name": "Contact Us",
+    "slogan": "Your Queries, Our Commitment – Contact Today"
+  },
 
   "Statistics": {
     "name": "Success Proven by Outstanding Metrics",
