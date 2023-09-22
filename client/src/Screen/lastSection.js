@@ -17,7 +17,7 @@ import "../Styles/lastSection.css";
 
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TelegramIcon from "@mui/icons-material/Telegram";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
 const StyleParent = {
   width: "90%",
@@ -30,8 +30,8 @@ const DesignTexts = {
     width: "90%",
     marginLeft: "auto",
     marginRight: "auto",
-    color:'white',
-    marginTop:'10px'
+    color: "white",
+    marginTop: "10px",
   },
 };
 
@@ -150,46 +150,80 @@ const LastScreenSection = () => {
         </section>
       </div>
       <footer className="footer">
-       
-
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             <Grid item xs={10} md={6} style={DesignTexts.centerCircle}>
-             <section className='threeSection' >
-
-             </section>
-            </Grid>
-            <Grid item xs={10} md={6} style={DesignTexts.centerCircle}>
-            <h4 style={{ color: "white", fontSize: "25px" }}> Connect On </h4>
-            <br/>
+           
             <section className='threeSection' >
                 <p>
-                    <a href='https://t.me/deekshalayabymanojgupta' style={{textDecoration:'none', color:'white'}} >
-                        <TelegramIcon style={{fontSize:'35px'}} />
+                    <a href='/about' style={{textDecoration:'none', color:'white'}} >
+                       About Us
+                    </a>
+<br/><br/>
+                    <a href='/results' style={{textDecoration:'none', color:'white'}} >
+                       See results
+                    </a>
+
+                    <br/><br/>
+                    <a href='/contact' style={{textDecoration:'none', color:'white'}} >
+                       Contact Us
+                    </a>  
+                  
+                </p>
+
+                <p>
+                    <a href='/login' style={{textDecoration:'none', color:'white'}} >
+                       &nbsp; Student Portal
+                    </a>
+
+                    <br/><br/>
+                    <a href='/reset' style={{textDecoration:'none', color:'white'}} >
+                       &nbsp; Reset Password
                     </a>
                 </p>
 
                 <p>
-                    <a href='https://youtube.com/@mkgupta197?si=GisWy61QtEE0R33P' style={{textDecoration:'none', color:'white'}} >
-                        <YouTubeIcon style={{fontSize:'35px'}} />
-                    </a>
-                </p>
-
-                <p>
-                    <a href='tel:+917834897602' style={{textDecoration:'none', color:'white'}} >
-                        <WhatsAppIcon style={{fontSize:'35px'}} />
+                    <a href='/developer' style={{textDecoration:'none', color:'white'}} >
+                        Developer Details
                     </a>
                 </p>
 </section>
             </Grid>
+            <Grid item xs={10} md={6} style={DesignTexts.centerCircle}>
+              <h4 style={{ color: "white", fontSize: "25px" }}> Connect On </h4>
+              <br />
+              <section className="threeSection">
+                <p>
+                  <a
+                    href="https://t.me/deekshalayabymanojgupta"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    <TelegramIcon style={{ fontSize: "35px" }} />
+                  </a>
+                </p>
+
+                <p>
+                  <a
+                    href="https://youtube.com/@mkgupta197?si=GisWy61QtEE0R33P"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    <YouTubeIcon style={{ fontSize: "35px" }} />
+                  </a>
+                </p>
+
+                <p>
+                  <a
+                    href="tel:+917834897602"
+                    style={{ textDecoration: "none", color: "white" }}
+                  >
+                    <WhatsAppIcon style={{ fontSize: "35px" }} />
+                  </a>
+                </p>
+              </section>
+            </Grid>
           </Grid>
         </Box>
-        <br />
-        <br />
-
-        <a href="/developer" style={{ textDecoration: "none", color: "white" }}>
-          Developer Details
-        </a>
+     
       </footer>
     </div>
   );
