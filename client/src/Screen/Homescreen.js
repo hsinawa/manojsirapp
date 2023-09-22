@@ -6,6 +6,7 @@ import TypingText from '../Component/typingText';
 import background from '../Images/bg.gif';
 import textData from '../Static/staticText.json'
 import AboutUs from './AboutPage';
+import DataTablePage from './dataTablePage';
 
 
 
@@ -19,6 +20,8 @@ const HomeScreen = () => {
 </div>
 <br/><br/>
 <AboutUs />
+<br/><br/>
+<DataTablePage />
         </React.Fragment>
     )
 }

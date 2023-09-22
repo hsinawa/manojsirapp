@@ -6,7 +6,25 @@
     "text": "We at concept classes are having highly dedicated team presenting a revolutionary website designed to enhance  the learning experience of students in the field of science and maths developed with the expert teachers, proficient in delivering comprehensive and engaging lessons to students. With a deep understanding of scientific concepts and principles, the teachers possess the ability to effectively communicate complex ideas in a clear and concise manner.",
     "para2": "Concept Classes, founded by Mr. Manoj Kumar in 1999, offers outstanding PCB classes to Class 9th and 10th students. With over two decades of excellence, our passionate educator nurture a love for science, leading to remarkable academic achievements. Join us for a journey of knowledge, innovation, and limitless possibilities."
   },
-  "Book": "Book Now",
+  "whyus":{
+    "name":"Why Us?",
+    "slogan":"Choose Concept Classes for exceptional PCB education. With over two decades of expertise, passionate educators, and a commitment to excellence, we ignite a lifelong love for science and ensure outstanding results.",
+    "facilities": [
+        [
+          "Expert Faculty",
+          "Expertise You Can Trust: Ensuring Excellence in PCB Education for Over Two Decades."
+        ],
+        [
+          "Results Matter",
+          "Results Matter, We Deliver. Empowering Achievements through Good Results since 2 Decades"
+        ],
+        [
+          "Student Portal",
+          "This coaching provides an exclusive portal for students,  enabling access to learning modules at fingertips"
+        ]
+      ]
+  },
+  "Book": "Book Trial",
   "subjects": {
     "physics": "Physics",
     "chemistry": "Chemistry",
@@ -15,8 +33,21 @@
 
   "offer": "What We Offer",
 
+  "Statistics": {
+    "name": "Achievements Backed by Impressive Statistics",
+    "paras": [
+      ["Experience", "Teaching since 1999, now with 24+ Years of experience"],
+      ["Total Students", "Shaped the career of 5000+ students till now"],
+      ["Remarkable Achievements", "More than 1000 students scored 90+ marks"],
+      [
+        "Statistics into Triumphs",
+        "More than 90% students gets above average marks every year"
+      ]
+    ]
+  },
+
   "classes": {
-    "name": "Class",
+    "name": "Classes",
     "IX": "IX",
     "X": "X",
     "XI": "XI",
