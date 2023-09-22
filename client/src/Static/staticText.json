@@ -52,5 +52,25 @@
     "X": "X",
     "XI": "XI",
     "XII": "XII"
+  } ,
+
+  "Questions": {
+    "name": "Got a Question?",
+    "subpara": "Didn't find your question?",
+    "quests": [
+      [
+        "What subjects and courses are offered?",
+        "We Offer classes of Physics, Chemistry and Biology for Classes IX and X. For Classes XI and XII we provide Biology Classes "
+      ],
+      [
+        "What is the class size?",
+        "We maintain small class sizes to ensure personalized attention for every student."
+      ],
+      [
+        "Is there any online support available for students?",
+        "Yes, we provide online support through our learning management system, allowing students to access resources anytime anywhere."
+      ],
+      ["What are the contact details?"]
+    ]
   }
 }

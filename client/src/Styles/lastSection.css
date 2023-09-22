@@ -1,0 +1,24 @@
+#parent {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .accordians{
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+   
+  }
+  
+  .footer
+  {
+    background-color: #002244;
+    border-radius: 8px 8px 0px 0px;
+    margin-top: 8%;
+    padding: 20px;
+  }
+
+.threeSection{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}  
