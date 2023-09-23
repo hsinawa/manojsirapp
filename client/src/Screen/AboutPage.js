@@ -40,7 +40,7 @@ const DesignTexts = {
 
 const WhyUs = () => {
   return (
-    <>
+    <div style={{width:'96.5%', marginLeft:'auto', marginRight:'auto'}} >
       <h2
         style={{
           float: "left",
@@ -90,13 +90,13 @@ const WhyUs = () => {
         </Grid>
       </Box>
 
-    </>
+    </div>
   );
 };
 
 const AboutUs = () => {
   return (
-    <React.Fragment>
+    <React.Fragment style={{width:'96.5%', marginLeft:'auto', marginRight:'auto'}} >
       <h2 style={DesignTexts.Headers}> {textData.about.name} </h2>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>

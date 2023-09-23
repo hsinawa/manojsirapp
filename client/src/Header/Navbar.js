@@ -76,7 +76,7 @@ function Navbar() {
         </a>
 
 
-        <a href="/find" id="navbar-item">
+        <a href="/login" id="navbar-item">
         <BackpackIcon style={{verticalAlign:'-6px'}} />  Student Portal
         </a>
 

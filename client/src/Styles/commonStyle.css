@@ -69,7 +69,7 @@ margin-right: auto;
  }
   
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:830px) {
 
     h2{
         font-size: 50px;
@@ -89,7 +89,26 @@ margin-right: auto;
       #title{
         text-align: center;
     }
+
+    #typing
+    {
+        color: rgb(18, 69, 163);
+        margin-top: 10%;
+        font-size: 16px;
+    }
+
+    /***** Stats Table ******/
+.scorestats {
+    display: block;
     
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+      rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
     
 }
 
@@ -112,18 +131,7 @@ h3{
 }
 
 
-/***** Stats Table ******/
-.scorestats {
-    display: block;
-    
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
-      rgba(0, 0, 0, 0.22) 0px 10px 10px;
-  }
+
 
 }
 
