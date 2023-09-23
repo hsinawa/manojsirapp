@@ -12,6 +12,13 @@ import { messageContactAction } from "../Actions/messageAction";
 import { PostEnqReducer } from "../Reducers/messageReducer";
 import Loader2 from "../Component/Loader";
 
+const Design ={
+  center: {
+    width:"90%",
+  marginLeft: "auto",
+  marginRight: "auto",
+},}
+
 const ContactUs = () => {
   const [number, setnumber] = useState("");
   const [name, setname] = useState("");
@@ -33,13 +40,22 @@ const ContactUs = () => {
   };
 
   return (
-    <div id="parent">
-      <h1 id="offerh1" style={{ color: "#082567" }}>
-        {textData.ContactUs.name}
-      </h1>
-      <p style={{ textAlign: "justify", color: "#011F5B" }}>
-        {textData.ContactUs.slogan}
-      </p>
+    <div style={Design.center} >
+     
+   
+     <h2
+        style={{
+          textAlign:'left',
+        
+          color: "#0C2340",
+        }}
+      >
+       {textData.ContactUs.name}
+      </h2>
+      <h4 style={{
+        color:'#4682B4',
+        textAlign:'left',
+      }} > {textData.ContactUs.slogan} </h4>
 
       <section
         style={{

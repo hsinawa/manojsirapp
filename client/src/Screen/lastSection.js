@@ -17,7 +17,7 @@ import "../Styles/lastSection.css";
 
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import TelegramIcon from "@mui/icons-material/Telegram";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import CallIcon from '@mui/icons-material/Call';
 
 const StyleParent = {
   width: "90%",
@@ -37,8 +37,8 @@ const DesignTexts = {
 
 const LastScreenSection = () => {
   return (
-    <div id="parents">
-      <div id="containall">
+    <div >
+      <div >
         <h2 style={{ color: "#002D62", textAlign: "left", marginLeft: "5%" }}>
           {" "}
           {textData.Questions.name}{" "}
@@ -48,7 +48,7 @@ const LastScreenSection = () => {
           style={{
             textAlign: "justify",
             color: "#72A0C1",
-            width: "100%",
+            width: "80%",
             marginLeft: "auto",
             marginRight: "auto",
             textAlign: "left",
@@ -216,7 +216,7 @@ const LastScreenSection = () => {
                     href="tel:+917834897602"
                     style={{ textDecoration: "none", color: "white" }}
                   >
-                    <WhatsAppIcon style={{ fontSize: "35px" }} />
+                    <CallIcon style={{ fontSize: "35px" }} />
                   </a>
                 </p>
               </section>
