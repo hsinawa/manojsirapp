@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import "../Styles/studentStyle.css";
-import {RegisterStudentAction} from '../Actions/studentAction'
+import {RegisterStudentAction} from '../Actions/studentAction';
+import {RegisterStudentReducer} from '../Reducers/studentReducer'
 
 //MUI
 import InputLabel from "@mui/material/InputLabel";
@@ -16,6 +17,7 @@ import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
 import Button from '@mui/material/Button';
+import Loader2 from "../Component/Loader";
 
 const InputStyle = {
   width: "90%",
@@ -56,6 +58,14 @@ const RegisterStudent = () => {
 
   const dispatch = useDispatch();
 
+  const {loading,error} = useSelector(state=>state.RegisterStudentReducer)
+  
+
+  if(error)
+  {
+    document.getElementById('error').innerHTML = `Email Already Registered`
+  }
+
   const RegisterStudent = (event) => {
     event.preventDefault();
     
@@ -67,7 +77,7 @@ const RegisterStudent = () => {
         standard: standard,
         schoolName: schoolName,
       };
-console.log('User is',user)
+
 
     //   alert(user)
     if(cpassword===password)
@@ -77,7 +87,7 @@ console.log('User is',user)
           
     }
     else{
-        alert(`NO pass`)
+        document.getElementById('passwords').innerHTML = `Passwords Didn't Match`
     }
 
    
@@ -200,7 +210,13 @@ console.log('User is',user)
             </Select>
           </FormControl>
           <br/><br/>
-          <Button variant="outlined" sx={InputStyle} type='submit' value='submit' > Register </Button>
+          <Button variant="outlined" sx={InputStyle} type='submit' value='submit' > {
+              loading?(<Loader2/>):'Register'
+          } </Button>
+          <br/><br/>
+          <p id='passwords' style={{color:'red'}} ></p>
+          <p id='error' style={{color:'red'}} ></p>
+        
         </form>
       </section>
     </div>

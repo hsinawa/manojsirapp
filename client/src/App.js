@@ -11,10 +11,11 @@ import ContactUs from './Screen/contactUs';
 import ErrorPage from './Screen/errorPage';
 import StudentLogin from './Student/Loginstudent';
 import RegisterStudent from './Student/RegisterStudent';
-
+import StudentPage from './Student/studentPage'
 
 
 function App() {
+  const student = localStorage.getItem('student')
   return (
     <div className="App">
     
@@ -28,6 +29,7 @@ function App() {
        <Route path='/login' element={<StudentLogin/>} ></Route>
        <Route path='/register' element={<RegisterStudent/>} ></Route>
        <Route path='/developer' element={<AboutDeveloper/>} ></Route>
+       {student&&(<Route path='/student' element={<StudentPage/>} />)}
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>
      </Routes>

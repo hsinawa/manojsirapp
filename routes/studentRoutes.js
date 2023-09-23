@@ -2,23 +2,19 @@ const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
 const StudentSchema = require("../models/studentModel");
-var requestIp = require('request-ip');
-
-
+var requestIp = require("request-ip");
 
 router.post("/register", async (req, res) => {
   try {
-    
-    const clientIp = requestIp.getClientIp(req); 
-    console.log("IP Address is", clientIp);
-
    
-    const existingStudent = await StudentSchema.findOne({ email: req.body.email });
+
+    const existingStudent = await StudentSchema.findOne({
+      email: req.body.email,
+    });
 
     if (existingStudent) {
       return res.status(400).send({ message: "Email Already Registered" });
     } else {
-      
       const student = new StudentSchema({
         name: req.body.name,
         email: req.body.email,
@@ -27,10 +23,6 @@ router.post("/register", async (req, res) => {
         standard: req.body.standard,
         schoolName: req.body.schoolName,
       });
-
-      console.log('saving....');
-
-      
       await student.save();
 
       return res.send({ message: "Registration Successful" });
@@ -41,6 +33,45 @@ router.post("/register", async (req, res) => {
   }
 });
 
+router.post("/login", async (req, res) => {
+    const studentIp = requestIp.getClientIp(req);
+    console.log('Loggin IN')
+  try {
+    const docs = await StudentSchema.find({
+      email: req.body.email,
+      password: req.body.password,
+    });
 
+    if (docs.length > 0) {
+      const localsave = {
+        name: docs[0].name,
+        _id: docs[0]._id,
+        email: docs[0].email,
+      };
+
+      const ipAd = {
+        name: studentIp.toString(),
+     };
+   
+
+    await  docs[0].ipAddress.push(ipAd);
+    
+    await docs[0].save();
+      
+     
+    //   await docs[0].ipAddress.push(reviewmodel);
+    //   await docs[0].save();
+
+      res.send(localsave);
+    } else {
+      res.status(400).json({ message: "Invalid Credentials for Admin" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+
+ 
+});
 
 module.exports = router;

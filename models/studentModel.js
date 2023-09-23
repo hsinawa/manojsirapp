@@ -1,5 +1,17 @@
 const mongoose = require("mongoose");
 
+const ipAddressSchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      require: [true, "Name is required"],
+    },
+},
+  {
+    timestamps: true,
+  }
+);
+
 const StudentSchema = mongoose.Schema(
   {
     name: {
@@ -34,11 +46,7 @@ const StudentSchema = mongoose.Schema(
       require,
     },
 
-    ipAddress: [
-      {
-        ip: { type: String, date: Date.now() },
-      },
-    ],
+    ipAddress: [ipAddressSchema],
 
     isLoggedIn: {
       type: Boolean,
@@ -72,6 +80,10 @@ const StudentSchema = mongoose.Schema(
         TotalMarks: {
           type: Number,
           require,
+        },
+        PercentageObtained : {
+          type:Number,
+          require
         }
        
       },
