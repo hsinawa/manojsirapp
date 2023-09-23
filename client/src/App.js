@@ -9,6 +9,8 @@ import LastScreenSection from './Screen/lastSection';
 import AboutDeveloper from './Developer/DeveloperDetails';
 import ContactUs from './Screen/contactUs';
 import ErrorPage from './Screen/errorPage';
+import StudentLogin from './Student/Loginstudent';
+import RegisterStudent from './Student/RegisterStudent';
 
 
 
@@ -23,6 +25,8 @@ function App() {
        <Route path='/about' element={<AboutUs/>} ></Route>
        <Route path='/results' element={<ResultScreenPage/>} ></Route>
        <Route path='/contact' element={<ContactUs/>} ></Route>
+       <Route path='/login' element={<StudentLogin/>} ></Route>
+       <Route path='/register' element={<RegisterStudent/>} ></Route>
        <Route path='/developer' element={<AboutDeveloper/>} ></Route>
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>

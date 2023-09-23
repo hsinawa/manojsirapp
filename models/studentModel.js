@@ -62,7 +62,7 @@ const StudentSchema = mongoose.Schema(
         NameOfTest: {
           type: String,
           require,
-          trim,
+          trim:true,
         },
 
         MarksScored: {
@@ -72,8 +72,8 @@ const StudentSchema = mongoose.Schema(
         TotalMarks: {
           type: Number,
           require,
-        },
-        Percentage: this.MarksScored / this.TotalMarks,
+        }
+       
       },
     ],
   },
@@ -82,6 +82,6 @@ const StudentSchema = mongoose.Schema(
   }
 );
 
-const Student = mongoose.Model("Student", StudentSchema);
+const Student = mongoose.model("Student", StudentSchema);
 
 module.exports = Student;
