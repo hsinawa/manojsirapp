@@ -10,7 +10,7 @@ import {
 } from "./Reducers/trialClassReducer";
 import { AddTaskReducer, GetTaskReducer } from "./Reducers/taskReducer";
 import {GetAllresultReducer} from './Reducers/resultReducer';
-import {RegisterStudentReducer} from './Reducers/studentReducer'
+import {RegisterStudentReducer , StudentLoginReducer } from './Reducers/studentReducer'
 
 const FinalReducer = combineReducers({
   GetAllEnqReducer: GetAllEnqReducer,
@@ -21,7 +21,8 @@ const FinalReducer = combineReducers({
   AddTaskReducer: AddTaskReducer,
   GetTaskReducer: GetTaskReducer,
   GetAllresultReducer:GetAllresultReducer,
-  RegisterStudentReducer:RegisterStudentReducer
+  RegisterStudentReducer:RegisterStudentReducer,
+  StudentLoginReducer:StudentLoginReducer
 });
 
 const InitialState = {};

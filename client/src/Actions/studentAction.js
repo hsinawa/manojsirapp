@@ -41,6 +41,6 @@ export const StudentLoginAction = (user) => (dispatch) => {
     })
     .catch((err) => {
      
-      dispatch({ type: StudentRegisterFail, payload: err });
+      dispatch({ type: StudentLoginFail, payload: err });
     });
 };

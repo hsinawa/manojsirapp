@@ -12,7 +12,6 @@ import Select from "@mui/material/Select";
 import { TextField } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
-import FormHelperText from "@mui/material/FormHelperText";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
@@ -60,7 +59,7 @@ const RegisterStudent = () => {
 
   const {loading,error} = useSelector(state=>state.RegisterStudentReducer)
   
-
+console.log('error is', error)
   if(error)
   {
     document.getElementById('error').innerHTML = `Email Already Registered`

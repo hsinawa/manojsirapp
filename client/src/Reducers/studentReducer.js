@@ -32,3 +32,39 @@ export const RegisterStudentReducer = (state = {}, action) => {
         return state;
     }
   };
+
+  const StudentLoginReq = 'StudentLogin/Req';
+const StudentLoginSuc = 'StudentLogin/Suc';
+const StudentLoginFail = 'StudentLogin/Fail';
+
+  export const StudentLoginReducer = (state = {}, action) => {
+    switch (action.type) {
+      case StudentLoginReq:
+        return {
+          ...state,
+          loading: true,
+        };
+  
+      case StudentLoginSuc:
+        return {
+          ...state,
+          loading: false,
+          success: true,
+        };
+  
+      case StudentLoginFail:
+        return {
+          ...state,
+          loading: false,
+          error: "Invalid Credentials",
+        };
+  
+      case "Student_LogOut":
+        return {
+          ...state,
+        };
+  
+      default:
+        return state;
+    }
+  };  

@@ -5,28 +5,49 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import { TextField } from "@mui/material";
+import { CircularProgress, TextField } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import InputAdornment from "@mui/material/InputAdornment";
-import FormHelperText from "@mui/material/FormHelperText";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import IconButton from "@mui/material/IconButton";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { StudentLoginAction } from '../Actions/studentAction';
+import logo from "../Images/logo.jpg";
+import {StudentLoginReducer} from '../Reducers/studentReducer'
 
 const InputStyle = {
     width: "90%",
     marginLeft: "auto",
     marginRight: "auto",
     padding: "12px",
+
+    buttonStyle:{
+      width: "88%",
+    marginLeft: "auto",
+    marginRight: "auto",
+    padding: "12px",
+    }
   };
 
+
+
 const StudentLogin = () => {
+  const student = localStorage.getItem("student");
+  if (student) {
+    window.location.href = "/student";
+  }
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = React.useState(false);
+
+    const {loading,error} = useSelector(state=>state.StudentLoginReducer)
+
+    if(error)
+    {
+      document.getElementById('error').innerHTML = `Invalid Credentials`
+    }
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -45,8 +66,11 @@ const dispatch = useDispatch()
     }
     return(
         <div id='studentform' >
-
+<br/><br/>
             <section className="formbox" >
+              <img  src={logo} alt='logo' style={{
+                width:'33%'
+              }} />
                 <form onSubmit={LoginStudent} >
                 <TextField
             id="outlined-basic-email"
@@ -87,9 +111,13 @@ const dispatch = useDispatch()
           </FormControl>
 
 
-                <Button variant="outlined" sx={InputStyle} type='submit' value='submit' > {
-             'Login'
+                <Button variant="outlined" sx={InputStyle.buttonStyle} type='submit' value='submit' > {
+             loading?(<CircularProgress/>):('LOGIN')
           } </Button>
+          <br/>
+          
+          <p id='error' style={{color:'red'}} ></p>
+          <br/>
                 </form>
              </section>   
             

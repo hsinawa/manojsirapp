@@ -35,7 +35,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
     const studentIp = requestIp.getClientIp(req);
-    console.log('Loggin IN')
+    
   try {
     const docs = await StudentSchema.find({
       email: req.body.email,
@@ -47,6 +47,7 @@ router.post("/login", async (req, res) => {
         name: docs[0].name,
         _id: docs[0]._id,
         email: docs[0].email,
+        standard:docs[0].standard
       };
 
       const ipAd = {
@@ -58,13 +59,10 @@ router.post("/login", async (req, res) => {
     
     await docs[0].save();
       
-     
-    //   await docs[0].ipAddress.push(reviewmodel);
-    //   await docs[0].save();
-
+   
       res.send(localsave);
     } else {
-      res.status(400).json({ message: "Invalid Credentials for Admin" });
+      res.status(400).json({ message: "Invalid Credentials" });
     }
   } catch (err) {
     console.error(err);
