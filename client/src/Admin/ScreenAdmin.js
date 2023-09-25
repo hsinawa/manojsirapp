@@ -29,7 +29,7 @@ const DashBoardGrid = [
         heading:'Result',
         image:result,
         text:'Check and Add Result' ,
-        link:'/admin/results'
+        link:'results'
     } ,
 
     {
