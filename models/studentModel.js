@@ -48,8 +48,8 @@ const StudentSchema = mongoose.Schema(
 
     ipAddress: [ipAddressSchema],
 
-    isLoggedIn: {
-      type: Boolean,
+    totalLogins: {
+      type: Number,
       require,
       default: false,
     },

@@ -34,7 +34,8 @@ const InputStyle = {
 
 const StudentLogin = () => {
   const student = localStorage.getItem("student");
-  if (student) {
+  const admin = localStorage.getItem("admin");
+  if (student||admin) {
     window.location.href = "/student";
   }
 

@@ -37,7 +37,7 @@ const DesignTexts = {
 
 const LastScreenSection = () => {
   return (
-    <div >
+    <div style={{marginBottom:'-2%'}} >
       <div >
         <h2 style={{ color: "#002D62", textAlign: "left", marginLeft: "5%" }}>
           {" "}
