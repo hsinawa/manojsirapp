@@ -81,11 +81,12 @@ const CheckFutureSchedule = () => {
     return(
         <div>
               <div className="calendar-container">
-                <div>
+                <div   >
                   <Calendar
                     onChange={handleDateChange}
                     value={selectedDate}
                     className="react-calendar"
+                   
                   />
                 </div>
               </div>

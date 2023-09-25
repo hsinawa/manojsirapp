@@ -16,6 +16,8 @@ import AdminLogin from './Admin/LoginAdmin';
 import AdminScreen from './Admin/ScreenAdmin';
 import StudentList from './Admin/StudentListAdmin';
 import GetAllMessages from './Admin/MessagesGetAll';
+import CheckFutureSchedule from './Admin/futureSchedule';
+import ToDoList from './Admin/todolist';
 
 
 function App() {
@@ -42,6 +44,8 @@ function App() {
        {admin&&(<Route path='/admin' element={<AdminScreen/>} ></Route>)}
        {admin&&(<Route path='/admin/studentlist' element={<StudentList/>} ></Route>)}
        {admin&&(<Route path='/admin/messages' element={<GetAllMessages/>} ></Route>)}
+       {admin&&(<Route path='/admin/schedule' element={<ToDoList/>} ></Route>)}
+       {admin&&(<Route path='/admin/futureschedule' element={<CheckFutureSchedule/>} ></Route>)}
      </Routes>
      </BrowserRouter>
      <br/><br/>
