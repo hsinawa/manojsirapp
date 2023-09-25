@@ -11,7 +11,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import PermContactCalendarIcon from '@mui/icons-material/PermContactCalendar';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import BackpackIcon from '@mui/icons-material/Backpack';
-import StudentSideBarComponent from "./Sidebar/StudentSidebar";
+
 
 
 const MainBar = () =>{
@@ -101,7 +101,8 @@ function Navbar() {
 
   return (
    <>
-   {student&&(<StudentSideBarComponent/>)}
+  
+ 
    <MainBar/>
    </>
   );
