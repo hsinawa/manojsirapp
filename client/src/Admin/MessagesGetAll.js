@@ -34,19 +34,19 @@ const GetAllMessages = () => {
             enquiries.map((i) => {
               return (
                 <tr>
-                  <td> {++count} </td>
-                  <td> {i.name} </td>
-                  <td>
+                  <td data-label='S.No' > {++count} </td>
+                  <td data-label='Name' > {i.name} </td>
+                  <td data-label='Phone Number' >
                     <a
                       herf={`tel:+91${i.contact}`}
                       style={{ textDecoration: "none" }}
                     >
                       {i.contact}
                     </a>{" "}
-                  </td>
-                  <td> {i.comment} </td>
+                  </td  >
+                  <td data-label='Comment' > {i.comment} </td>
 
-                  <td> {i.createdAt?.substr(0, 10)} </td>
+                  <td data-label='Date of Comment' > {i.createdAt?.substr(0, 10)} </td>
                 </tr>
               );
             })}

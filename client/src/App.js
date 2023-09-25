@@ -14,6 +14,8 @@ import RegisterStudent from './Student/RegisterStudent';
 import StudentPage from './Student/studentPage'
 import AdminLogin from './Admin/LoginAdmin';
 import AdminScreen from './Admin/ScreenAdmin';
+import StudentList from './Admin/StudentListAdmin';
+import GetAllMessages from './Admin/MessagesGetAll';
 
 
 function App() {
@@ -38,6 +40,8 @@ function App() {
        <Route path='*' element={<ErrorPage/>} ></Route>
        <Route path='/adminlogin' element={<AdminLogin/>}   ></Route>
        {admin&&(<Route path='/admin' element={<AdminScreen/>} ></Route>)}
+       {admin&&(<Route path='/admin/studentlist' element={<StudentList/>} ></Route>)}
+       {admin&&(<Route path='/admin/messages' element={<GetAllMessages/>} ></Route>)}
      </Routes>
      </BrowserRouter>
      <br/><br/>

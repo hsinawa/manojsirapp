@@ -5,8 +5,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 
-const GridCard = ({ image, heading, text }) => {
-    
+const GridCard = ({ i }) => {
+    const {image, heading, text} = i;
   return (
     <Card
       raised
@@ -26,6 +26,7 @@ const GridCard = ({ image, heading, text }) => {
           alt={"Grid Image"}
           title={"Image src: google"}
           image={image}
+          
          
         />
 
