@@ -2,7 +2,7 @@ import { CircularProgress } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { StudentGETDescriptionAction } from "../Actions/studentAction";
+import { StudentGETDescriptionAction, StudentUpdateAction } from "../Actions/studentAction";
 import { GetDescriptionStudentsReducer } from "../Reducers/studentReducer";
 
 //MUI Components
@@ -18,6 +18,7 @@ import CallIcon from "@mui/icons-material/Call";
 import SchoolIcon from "@mui/icons-material/School";
 import LoginIcon from "@mui/icons-material/Login";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import { Button } from "@mui/base";
 
 const DescriptionStudent = () => {
   const { studentid } = useParams();
@@ -29,13 +30,17 @@ const DescriptionStudent = () => {
   const { loading, error, students } = useSelector(
     (state) => state.GetDescriptionStudentsReducer
   );
-  const userData = {
-    name: "John Doe",
-    profilePicture: "https://example.com/profile.jpg",
-    email: "john.doe@example.com",
-    bio: "Web Developer | React Enthusiast",
-  };
-  console.log(students);
+
+  const [AccountStatus,setAccountStatus] = React.useState()
+  console.log('status is',AccountStatus )
+  const UpdateStatus = (e)=>{
+      
+
+      e.preventDeafult();
+      alert('Hello')
+// dispatch(StudentUpdateAction({AccountStatus}))
+  }
+
   return (
     <div>
       {loading && <CircularProgress />}
@@ -86,8 +91,33 @@ const DescriptionStudent = () => {
             <h1 className="profile-name">Login Information </h1>
             Active Logins :{" "}
             <NotificationsActiveIcon style={{ verticalAlign: "-6px" }} />{" "}
-            {students[0]?.ActiveLogins} | Total Logins: <LoginIcon style={{verticalAlign:'-6px'}} /> {students[0]?.totalLogins}
+            {students[0]?.ActiveLogins} | Total Logins:{" "}
+            <LoginIcon style={{ verticalAlign: "-6px" }} />{" "}
+            {students[0]?.totalLogins}
           </div>
+
+          <h4>Login Activities</h4>
+          {students[0]?.ipAddress?.map((val, key) => {
+            return (
+              <p key={key}>
+                {" "}
+                {++key}) IP Address: {val.name} | on{" "}
+                {new Date(`${val.createdAt}`)?.toString().substr(0, 25)}{" "}
+              </p>
+            );
+          })}
+
+          <br />
+          <hr />
+          <div>
+              <form onSubmit={UpdateStatus} >
+
+<input type='radio' value={true} name='status'  onChange={ (e)=>{ setAccountStatus(e.target.value) } } />Yes
+<input type='radio' value={false} name='status'  onChange={ (e)=>{ setAccountStatus(e.target.value) } } />NO
+<button type='submit' value='submit' variant='outlined' > Update </button>
+              </form>
+
+              </div>
         </div>
       )}
     </div>
