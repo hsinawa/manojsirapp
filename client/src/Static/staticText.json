@@ -76,5 +76,12 @@
       ],
       ["What are the contact details?"]
     ]
+  } ,
+
+  "Students":{
+    "Table":{
+      "name":"List of Student Table",
+      "tableEntries":[ "S.No", "Name", "Class" ,"Status", "Total Logins" , "Active Logins", "View More" ]
+    }
   }
 }

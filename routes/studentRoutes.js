@@ -60,9 +60,11 @@ router.post("/login", async (req, res) => {
 
       const upadtedCount = await StudentSchema.findOneAndUpdate(
         { email: studentId },
-        { $inc: { totalLogins: 1 } },
+        { $inc: { totalLogins: 1 , ActiveLogins:1 } },
         { new: true }
       );
+
+   
 
       if (!upadtedCount) {
         return res.status(400).json({ message: "ID not found" });
@@ -86,7 +88,7 @@ router.post('/logout', async (req,res)=>{
     try{
         const upadtedCount = await StudentSchema.findOneAndUpdate(
             { email: studentId },
-            { $inc: { totalLogins: -1 } },
+            { $inc: { ActiveLogins: -1 } },
             { new: true } 
           );
       
@@ -104,5 +106,19 @@ router.post('/logout', async (req,res)=>{
 
    
 } )
+
+
+router.get("/getall", async (req, res) => {
+  console.log('Getting all.....')
+  try {
+    const docs = await StudentSchema.find({} );
+    
+console.log('Docs are', docs)
+    res.send(docs);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Something Went Wrong" });
+  }
+});
 
 module.exports = router;

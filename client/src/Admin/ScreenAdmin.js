@@ -43,7 +43,7 @@ const DashBoardGrid = [
         heading:'Check Videos',
         image:youtube,
         text:'See and Add Youtube Lectures' ,
-        link:'/admin//videos'
+        link:'/admin/videos'
     } ,
     
 

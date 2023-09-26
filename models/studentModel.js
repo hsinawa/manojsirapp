@@ -54,6 +54,12 @@ const StudentSchema = mongoose.Schema(
       default: false,
     },
 
+    ActiveLogins: {
+      type: Number,
+      require,
+      default: false,
+    },
+
     finalMarksScored: {
       type: Number,
       require,

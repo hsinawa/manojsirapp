@@ -23,7 +23,6 @@ export const RegisterStudentAction = (user) => (dispatch) => {
 };
 
 
-
 const StudentLoginReq = 'StudentLogin/Req';
 const StudentLoginSuc = 'StudentLogin/Suc';
 const StudentLoginFail = 'StudentLogin/Fail';
@@ -42,5 +41,25 @@ export const StudentLoginAction = (user) => (dispatch) => {
     .catch((err) => {
      
       dispatch({ type: StudentLoginFail, payload: err });
+    });
+};
+
+
+const StudentGETReq = 'StudentGET/Req';
+const StudentGETSuc = 'StudentGET/Suc';
+const StudentGETFail = 'StudentGET/Fail';
+
+export const StudentGETAction = () => (dispatch) => {
+  dispatch({ type: StudentGETReq });
+
+  axios
+    .get(`${Student_API}/getall`)
+    .then((res) => {
+      dispatch({ type: StudentGETSuc , payload:res.data });
+    
+    })
+    .catch((err) => {
+     
+      dispatch({ type: StudentGETFail, payload: err });
     });
 };
