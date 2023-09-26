@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const StudentSchema = require("../models/studentModel");
 var requestIp = require("request-ip");
 
-
 router.post("/register", async (req, res) => {
   try {
     const existingStudent = await StudentSchema.findOne({
@@ -139,19 +138,16 @@ router.post("/updateStatus", async (req, res) => {
   }
 });
 
+router.post("/GetDescription", async (req, res) => {
+  try {
+    const { studentid } = req.body;
 
-router.post('/GetDescription', async (req,res)=>{
+    const Descriptiondata = await StudentSchema.find({ _id: studentid });
 
-  try{
- const {studentid} = req.body;
-
-const Descriptiondata = await StudentSchema.find({_id:studentid});
-
- 
-res.status(200).send(Descriptiondata)
-  }catch (err){
+    res.status(200).send(Descriptiondata);
+  } catch (err) {
     return res.status(400).json({ message: `Something Went Wrong ${err} ` });
   }
-} )
+});
 
 module.exports = router;

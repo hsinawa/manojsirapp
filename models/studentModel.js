@@ -6,6 +6,12 @@ const ipAddressSchema = mongoose.Schema(
       type: String,
       require: [true, "Name is required"],
     },
+
+    date:{
+      type:Date,
+      default:new Date().toLocaleString('en-US', {timeZone: 'Asia/Kolkata'})
+
+    }
 },
   {
     timestamps: true,

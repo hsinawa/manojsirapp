@@ -96,3 +96,31 @@ export const GetAllStudentsReducer = (state = { students: [] }, action) => {
       return state;
   }
 };
+
+
+export const GetDescriptionStudentsReducer = (state = {  }, action) => {
+  switch (action.type) {
+    case StudentGETReq:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case StudentGETSuc:
+      return {
+        ...state,
+        loading: false,
+        students: action.payload,
+      };
+
+    case StudentGETFail:
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+
+    default:
+      return state;
+  }
+};
