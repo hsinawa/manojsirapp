@@ -18,6 +18,7 @@ import StudentList from './Admin/StudentListAdmin';
 import GetAllMessages from './Admin/MessagesGetAll';
 import CheckFutureSchedule from './Admin/futureSchedule';
 import ToDoList from './Admin/todolist';
+import DescriptionStudent from './Student/DescriptionStudent';
 
 
 function App() {
@@ -42,6 +43,7 @@ function App() {
        <Route path='*' element={<ErrorPage/>} ></Route>
        <Route path='/adminlogin' element={<AdminLogin/>}   ></Route>
        {admin&&(<Route path='/admin' element={<AdminScreen/>} ></Route>)}
+       {admin&&(<Route path={`/studentdescription/:studentid`} element={<DescriptionStudent/>} ></Route>)}
        {admin&&(<Route path='/admin/studentlist' element={<StudentList/>} ></Route>)}
        {admin&&(<Route path='/admin/messages' element={<GetAllMessages/>} ></Route>)}
        {admin&&(<Route path='/admin/schedule' element={<ToDoList/>} ></Route>)}

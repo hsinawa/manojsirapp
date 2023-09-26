@@ -1,5 +1,5 @@
 import { CircularProgress } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { StudentGETAction } from '../Actions/studentAction';
 import {GetAllStudentsReducer} from '../Reducers/studentReducer';
@@ -10,10 +10,15 @@ import textData from '../Static/staticText.json';
 import CheckIcon from '@mui/icons-material/Check';
 import ClearIcon from '@mui/icons-material/Clear';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 
 const StudentList = () => {
     const dispatch = useDispatch();
+    const [SearchTerm, setSearchTerm] = useState(9);
 
     useEffect(  ()=>{
         dispatch(StudentGETAction())
@@ -27,7 +32,25 @@ var cnt = 0 ;
 
 {loading && <CircularProgress />}
       {error && <h2 style={{ color: "red" }}>OOPS! Something went wrong</h2>}
-
+      <FormControl sx={{width:'90%'}}>
+        <InputLabel id="demo-simple-select-label">Filter</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={SearchTerm}
+          onChange={ (e)=>{setSearchTerm(e.target.value)} }
+          label="Age"
+         
+        >
+          <MenuItem value={9}>IX</MenuItem>
+          <MenuItem value={10}>X</MenuItem>
+          <MenuItem value={11}>XI</MenuItem>
+          <MenuItem value={12}>XII</MenuItem>
+          <MenuItem value={2}>All Pending</MenuItem>
+          <MenuItem value={4}>All Approved</MenuItem>
+          <MenuItem value={3}>All Students</MenuItem>
+        </Select>
+      </FormControl>
       <table class="table">
         <thead>
            {
@@ -39,7 +62,24 @@ var cnt = 0 ;
         </thead>
         <tbody>
           {students &&
-            students.map((i) => {
+            students.filter((val) => {
+              if (SearchTerm == 3) {
+                return val;
+              } 
+              else if(SearchTerm==4)
+              {
+                return val.isAccountValid===true;
+              }
+              else if(SearchTerm==2)
+              {
+                return val.isAccountValid===false;
+              }
+              else if (
+                val.standard.includes(SearchTerm) 
+              ) {
+                return val;
+              }
+            }).map((i) => {
               return (
                 <tr>
           <td data-label={`${textData.Students.Table.tableEntries[0]}`} > {++cnt} </td>
@@ -48,7 +88,7 @@ var cnt = 0 ;
           <td data-label={`${textData.Students.Table.tableEntries[3]}`} > {i.isAccountValid ? (<CheckIcon style={{color:'green'}} />):(<ClearIcon style={{color:'red'}} />) } </td>
           <td data-label={`${textData.Students.Table.tableEntries[4]}`} > {i.totalLogins} </td>
           <td data-label={`${textData.Students.Table.tableEntries[5]}`} > {i.ActiveLogins} </td>
-          <td data-label={`${textData.Students.Table.tableEntries[6]}`} > <RemoveRedEyeIcon/> </td>
+          <td data-label={`${textData.Students.Table.tableEntries[6]}`} > <a href = {`/studentdescription/${i._id}`} > <RemoveRedEyeIcon/> </a> </td>
 
                 </tr>
               );

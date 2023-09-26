@@ -13,7 +13,7 @@ export const RegisterStudentAction = (user) => (dispatch) => {
     .post(`${Student_API}/register`, user)
     .then((res) => {
       dispatch({ type: `${StudentRegisterSuc}` });
-      localStorage.setItem("student", JSON.stringify(res.data));
+      
       window.location.href = "/login";
     })
     .catch((err) => {

@@ -60,61 +60,59 @@ router.post("/login", async (req, res) => {
 
       const upadtedCount = await StudentSchema.findOneAndUpdate(
         { email: studentId },
-        { $inc: { totalLogins: 1 , ActiveLogins:1 } },
+        { $inc: { totalLogins: 1, ActiveLogins: 1 } },
         { new: true }
       );
-
-   
 
       if (!upadtedCount) {
         return res.status(400).json({ message: "ID not found" });
       }
-
-     
 
       res.send(localsave);
     } else {
       res.status(400).json({ message: "Invalid Credentials" });
     }
   } catch (err) {
-    console.error(err);
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
 
+router.post("/logout", async (req, res) => {
+  const studentId = req.body.email;
+  try {
+    const upadtedCount = await StudentSchema.findOneAndUpdate(
+      { email: studentId },
+      { $inc: { ActiveLogins: -1 } },
+      { new: true }
+    );
 
-router.post('/logout', async (req,res)=>{
-    const studentId = req.body.email;
-    try{
-        const upadtedCount = await StudentSchema.findOneAndUpdate(
-            { email: studentId },
-            { $inc: { ActiveLogins: -1 } },
-            { new: true } 
-          );
-      
-          if (!upadtedCount) {
-            return res.status(400).json({ message: "ID not found" });
-          }
-
-        return  res.status(200).send({ message: "Logged Out Successfully" });
-
-    }catch (err){
-        return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+    if (!upadtedCount) {
+      return res.status(400).json({ message: "ID not found" });
     }
 
-  
-
-   
-} )
-
+    return res.status(200).send({ message: "Logged Out Successfully" });
+  } catch (err) {
+    return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+  }
+});
 
 router.get("/getall", async (req, res) => {
-  console.log('Getting all.....')
   try {
-    const docs = await StudentSchema.find({} );
-    
-console.log('Docs are', docs)
-    res.send(docs);
+    const pipeline = [
+      {
+        $project: {
+          name: 1,
+          standard: 1,
+          totalLogins: 1,
+          ActiveLogins: 1,
+          isAccountValid: 1,
+        },
+      },
+    ];
+
+    const result = await StudentSchema.aggregate(pipeline);
+
+    res.send(result);
   } catch (err) {
     console.error(err);
     res.status(400).json({ message: "Something Went Wrong" });
