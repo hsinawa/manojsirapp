@@ -63,3 +63,20 @@ export const StudentGETAction = () => (dispatch) => {
       dispatch({ type: StudentGETFail, payload: err });
     });
 };
+
+
+
+export const StudentGETDescriptionAction = ({studentid}) => (dispatch) => {
+  dispatch({ type: StudentGETReq });
+
+  axios
+    .post(`${Student_API}/GetDescription`,{studentid})
+    .then((res) => {
+      dispatch({ type: StudentGETSuc , payload:res.data });
+    
+    })
+    .catch((err) => {
+     
+      dispatch({ type: StudentGETFail, payload: err });
+    });
+};

@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const StudentSchema = require("../models/studentModel");
 var requestIp = require("request-ip");
 
+
 router.post("/register", async (req, res) => {
   try {
     const existingStudent = await StudentSchema.findOne({
@@ -118,5 +119,39 @@ router.get("/getall", async (req, res) => {
     res.status(400).json({ message: "Something Went Wrong" });
   }
 });
+
+router.post("/updateStatus", async (req, res) => {
+  try {
+    const id = req.body.studentid;
+    const UpdatedStatus = await StudentSchema.findByIdAndUpdate(
+      { _id: id },
+      {
+        isAccountValid: req.body.AccountStatus,
+      }
+    );
+    if (!UpdatedStatus) {
+      return res.status(400).json({ message: "Could not update" });
+    }
+
+    return res.status(200).send({ message: "Updated Successfully" });
+  } catch (err) {
+    return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+  }
+});
+
+
+router.post('/GetDescription', async (req,res)=>{
+
+  try{
+ const {studentid} = req.body;
+
+const Descriptiondata = await StudentSchema.find({_id:studentid});
+
+ 
+res.status(200).send(Descriptiondata)
+  }catch (err){
+    return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+  }
+} )
 
 module.exports = router;
