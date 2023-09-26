@@ -120,7 +120,6 @@ router.get("/getall", async (req, res) => {
 });
 
 router.post("/updateStatus", async (req, res) => {
-  console.log('Updating....',req.body.AccountStatus)
   try {
     const id = req.body.studentid;
     const UpdatedStatus = await StudentSchema.findByIdAndUpdate(
@@ -130,10 +129,9 @@ router.post("/updateStatus", async (req, res) => {
       }
     );
     if (!UpdatedStatus) {
-      console.log('Not Updating....')
       return res.status(400).json({ message: "Could not update" });
     }
-    console.log('Yes Updating....')
+
     return res.status(200).send({ message: "Updated Successfully" });
   } catch (err) {
     return res.status(400).json({ message: `Something Went Wrong ${err} ` });

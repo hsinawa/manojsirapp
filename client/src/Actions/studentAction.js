@@ -77,12 +77,14 @@ const UpdateStudent_Req = "UpdateStudent_Req";
 const UpdateStudent_Suc = "UpdateStudent_Suc";
 const UpdateStudent_Fail = "UpdateStudent_Fail";
 
-export const StudentUpdateAction = ({AccountStatus}) => (dispatch) => {
+export const StudentUpdateAction = ({AccountStatus,studentid}) => (dispatch) => {
   dispatch({ type: UpdateStudent_Req });
   axios
-    .post(`${Student_API}/updateStatus`, {AccountStatus})
+    .post(`${Student_API}/updateStatus`, {AccountStatus,studentid})
     .then((res) => {
       dispatch({ type: UpdateStudent_Suc, payload: res.data });
+      alert('Updated')
+      window.location.reload()
     })
     .catch((err) => {
       dispatch({ type: UpdateStudent_Fail, payload: err });
