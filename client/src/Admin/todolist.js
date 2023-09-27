@@ -15,18 +15,20 @@ import Loader2 from "../Component/Loader";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import TextField from "@mui/material/TextField";
-import { GetAllTaskById, TaskAddAction, UpdateTaskByIdAction } from "../Actions/taskAction";
+import {
+  GetAllTaskById,
+  TaskAddAction,
+  UpdateTaskByIdAction,
+} from "../Actions/taskAction";
 import { AddTaskReducer, GetTaskReducer } from "../Reducers/taskReducer";
 import { CircularProgress } from "@mui/material";
-import PendingActionsIcon from '@mui/icons-material/PendingActions';
-import DoneIcon from '@mui/icons-material/Done';
-
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
+import DoneIcon from "@mui/icons-material/Done";
 
 function TaskComponent({ i }) {
-
-    const dispatch = useDispatch();
-    const id = i._id
-    const status = i.status
+  const dispatch = useDispatch();
+  const id = i._id;
+  const status = i.status;
 
   return (
     <div>
@@ -43,30 +45,49 @@ function TaskComponent({ i }) {
             "rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px",
         }}
       >
-       {i.status? ( <div style={{color:'green', fontSize:'30px', fontWeight:'bold'}} >
-               <DoneIcon style={{verticalAlign:'-3px', fontSize:'30px'}} /> Completed
-               </div>
-               ):(
-           <div style={{color:'red', fontSize:'30px', fontWeight:'bold'}} >
-               <PendingActionsIcon style={{verticalAlign:'-3px', fontSize:'30px'}} /> Pending
-               </div>
-       ) }  
+        {i.status ? (
+          <div style={{ color: "green", fontSize: "30px", fontWeight: "bold" }}>
+            <DoneIcon style={{ verticalAlign: "-3px", fontSize: "30px" }} />{" "}
+            Completed
+          </div>
+        ) : (
+          <div style={{ color: "red", fontSize: "30px", fontWeight: "bold" }}>
+            <PendingActionsIcon
+              style={{ verticalAlign: "-3px", fontSize: "30px" }}
+            />{" "}
+            Pending
+          </div>
+        )}
 
-       <hr/> 
+        <hr />
         <h4 style={{ fontSize: "27px" }}>
           {" "}
-          {i.name} : <span style={{ color: "#888888", fontSize:'22px', fontWeight:'normal',  marginTop: "25px" }}> {i.comment} </span>{" "}
+          {i.name} :{" "}
+          <span
+            style={{
+              color: "#888888",
+              fontSize: "22px",
+              fontWeight: "normal",
+              marginTop: "25px",
+            }}
+          >
+            {" "}
+            {i.comment}{" "}
+          </span>{" "}
         </h4>
-        <hr/>
-        <br/>
-      <Button variant='outlined'
-      style={{width:'100%', marginBottom:'10px'}} 
-      onClick={(e)=>{
-          dispatch(UpdateTaskByIdAction({id,status}))
-      }}
-      >  {i.status? (<p>Move to Pending</p>):(<p>Complete</p>) }  </Button>
+        <hr />
+        <br />
+        <Button
+          variant="outlined"
+          style={{ width: "100%", marginBottom: "10px" }}
+          onClick={(e) => {
+            dispatch(UpdateTaskByIdAction({ id, status }));
+          }}
+        >
+          {" "}
+          {i.status ? <p>Move to Pending</p> : <p>Complete</p>}{" "}
+        </Button>
       </div>
-     
     </div>
   );
 }
@@ -164,13 +185,16 @@ const ToDoList = () => {
       >
         <CalendarMonthIcon style={{ verticalAlign: "-3px" }} /> Add Task
       </Button>
-     &nbsp; &nbsp;  <Button
+      &nbsp; &nbsp;{" "}
+      <Button
         variant="outlined"
         color="neutral"
-    
-        style={{ float: "left", paddingLeft:'7px' }}
+        style={{ float: "left", paddingLeft: "7px" }}
       >
-       <a href='/admin/futureschedule' style={{textDecoration:'none'}} > Check Future Schedule </a>
+        <a href="/admin/futureschedule" style={{ textDecoration: "none" }}>
+          {" "}
+          Check Future Schedule{" "}
+        </a>
       </Button>
       <Modal
         aria-labelledby="modal-title"
@@ -295,29 +319,31 @@ const ToDoList = () => {
           {" "}
           {completed} / {totaltasks} Tasks{" "}
         </h4>
-        <h2> {Math.floor(ratio)} % Completed</h2>
+        <h2>
+          {" "}
+          {tasks?.length > 0 ? (
+            <span> {Math.floor(ratio)} % Completed </span>
+          ) : (
+            <span>NO TASK</span>
+          )}
+        </h2>
         <BorderLinearProgress
           variant="determinate"
           value={ratio}
           className="progress-bar"
         />
       </section>
-
       <br />
       <br />
       <br />
       <br />
-
       {loadingtask && <CircularProgress />}
-
       {tasks &&
         tasks.map((i) => {
           return <TaskComponent i={i} />;
         })}
-
-<br />
       <br />
-
+      <br />
     </div>
   );
 };

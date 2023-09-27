@@ -38,7 +38,7 @@ const GetAllMessages = () => {
                   <td data-label='Name' > {i.name} </td>
                   <td data-label='Phone Number' >
                     <a
-                      herf={`tel:+91${i.contact}`}
+                      herf={`mailto:${i.contact}`}
                       style={{ textDecoration: "none" }}
                     >
                       {i.contact}
@@ -46,7 +46,7 @@ const GetAllMessages = () => {
                   </td  >
                   <td data-label='Comment' > {i.comment} </td>
 
-                  <td data-label='Date of Comment' > {i.createdAt?.substr(0, 10)} </td>
+                  <td data-label='Date of Comment' > { new Date(`${i.createdAt}`)?.toString()?.substr(0,15) } </td>
                 </tr>
               );
             })}

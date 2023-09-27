@@ -24,7 +24,7 @@ export const TaskAddAction = (data) => (dispatch) => {
 export const GetAllTaskById = (data) => (dispatch) => {
   dispatch({ type: Task_Req });
   axios
-    .post(`${Task_API}/getall`, data)
+    .post(`${Task_API}/getall2`, data)
     .then((res) => {
       dispatch({ type: Task_Suc, payload: res.data });
     })

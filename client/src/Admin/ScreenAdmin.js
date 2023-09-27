@@ -78,8 +78,8 @@ const AdminScreen = () => {
             <h3 style={{textAlign:'left'}} > Professional Dashboard for {admin.name} </h3>
             <section className='threeGrid' >
                 {
-                    DashBoardGrid?.map(i=>{
-                        return <p> <a href={`${i.link}`} style={{textDecoration:'none'}} > <GridCard i ={ i} /> </a> </p>
+                    DashBoardGrid?.map((i,key)=>{
+                        return <p key={key} > <a href={`${i.link}`} style={{textDecoration:'none'}} > <GridCard i ={ i} /> </a> </p>
                     })
                 }
                 </section>

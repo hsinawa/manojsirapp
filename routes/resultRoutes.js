@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-const EnquireSchema = require("../models/messageModel");
 const Result = require("../models/resultModel");
 
 router.post("/addresult", async (req, res) => {
