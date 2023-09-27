@@ -11,7 +11,13 @@ const ReviewSchema = mongoose.Schema(
       type: String,
       require: [true, "Enter Email"],
       trim: true,
-      unique:true
+      
+    },
+
+    schoolName:{
+      type: String,
+      require: [true, "Enter School Name"],
+      trim: true,
     },
 
     comment:{
@@ -25,6 +31,12 @@ const ReviewSchema = mongoose.Schema(
       type: Number,
       require: [true, "Rating is Required"],
     },
+
+    isValid :{
+      type:Boolean,
+      require,
+      default:false
+    }
   },
   { timestamps: true }
 );

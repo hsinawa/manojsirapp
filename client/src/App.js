@@ -21,6 +21,7 @@ import ToDoList from './Admin/todolist';
 import DescriptionStudent from './Student/DescriptionStudent';
 import BookTrialClass from './Screen/trialClassScreen';
 import TrailClassGetAll from './Admin/trialclassGetAll';
+import ReviewScreen from './Screen/reviewScreen';
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
        <Route path='/booktrial' element={<BookTrialClass/>} ></Route>
        <Route path='/register' element={<RegisterStudent/>} ></Route>
        <Route path='/developer' element={<AboutDeveloper/>} ></Route>
+       <Route path='/reviews' element={<ReviewScreen/>} ></Route>
        {student&&(<Route path='/student' element={<StudentPage/>} />)}
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>

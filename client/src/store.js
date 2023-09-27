@@ -9,9 +9,14 @@ import {
   GetAllTrialClassReducer,
 } from "./Reducers/trialClassReducer";
 import { AddTaskReducer, GetTaskReducer } from "./Reducers/taskReducer";
-import {GetAllresultReducer} from './Reducers/resultReducer';
-import {RegisterStudentReducer , StudentLoginReducer, GetAllStudentsReducer ,GetDescriptionStudentsReducer} from './Reducers/studentReducer'
-
+import { GetAllresultReducer } from "./Reducers/resultReducer";
+import {
+  RegisterStudentReducer,
+  StudentLoginReducer,
+  GetAllStudentsReducer,
+  GetDescriptionStudentsReducer,
+} from "./Reducers/studentReducer";
+import { ReviewReducer } from "./Reducers/reviewReducer";
 const FinalReducer = combineReducers({
   GetAllEnqReducer: GetAllEnqReducer,
   PostEnqReducer: PostEnqReducer,
@@ -20,11 +25,12 @@ const FinalReducer = combineReducers({
   LoginAdminReducer: LoginAdminReducer,
   AddTaskReducer: AddTaskReducer,
   GetTaskReducer: GetTaskReducer,
-  GetAllresultReducer:GetAllresultReducer,
-  RegisterStudentReducer:RegisterStudentReducer,
-  StudentLoginReducer:StudentLoginReducer,
-  GetAllStudentsReducer:GetAllStudentsReducer,
-  GetDescriptionStudentsReducer:GetDescriptionStudentsReducer
+  GetAllresultReducer: GetAllresultReducer,
+  RegisterStudentReducer: RegisterStudentReducer,
+  StudentLoginReducer: StudentLoginReducer,
+  GetAllStudentsReducer: GetAllStudentsReducer,
+  GetDescriptionStudentsReducer: GetDescriptionStudentsReducer,
+  ReviewReducer: ReviewReducer,
 });
 
 const InitialState = {};

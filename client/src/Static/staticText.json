@@ -83,5 +83,10 @@
       "name":"List of Student Table",
       "tableEntries":[ "S.No", "Name", "Class" ,"Status", "Total Logins" , "Active Logins", "View More" ]
     }
+  },
+
+  "Reviews":{
+    "name":"Empowering Achievers, Sharing Stories",
+    "add":"Write a Review"
   }
 }
