@@ -40,9 +40,9 @@ const DashBoardGrid = [
     } ,
 
     {
-        heading:'Check Videos',
+        heading:'Check Lectures',
         image:youtube,
-        text:'See and Add Youtube Lectures' ,
+        text:'See and Add Video Lectures' ,
         link:'/admin/videos'
     } ,
     
@@ -64,7 +64,7 @@ const DashBoardGrid = [
         heading:'Check Trail Classes',
         image:trial,
         text:'Check Future Trial Classes Booked ' ,
-        link:'/admin/reviews'
+        link:'/admin/trialclass'
     } ,
 
 ]

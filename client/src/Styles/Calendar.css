@@ -1,0 +1,52 @@
+/* Calendar.module.css */
+
+/* Styling for the calendar container */
+.calendar-container {
+    max-width: 400px;
+    margin: 0 auto;
+    
+  }
+
+  /* Styling for calendar days */
+  .react-calendar {
+    width: 100%;
+    max-width: 350px;
+
+border:none;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Styling for calendar navigation buttons */
+  .react-calendar__navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  
+  /* Styling for calendar tile (each day) */
+  .react-calendar__tile {
+    padding: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+  }
+  
+  /* Styling for selected day */
+  .react-calendar__tile--active {
+    background-color: #074a92;
+    color: #fff;
+  }
+  
+  /* Styling for today's date */
+  .react-calendar__tile--now {
+    background-color: #f0f0f0;
+    font-weight: bold;
+    border: 1px solid #ddd;
+  }
+  
+  /* Styling for disabled dates */
+  .react-calendar__tile--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

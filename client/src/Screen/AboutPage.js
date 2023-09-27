@@ -84,7 +84,7 @@ const WhyUs = () => {
           <Grid item xs={10} md={6} style={DesignTexts.centerCircle}>
           <SideCardsCircle  title={textData.whyus.facilities[0][0]} image={prof} text={textData.whyus.facilities[0][1]} buttonText='Read Reviews' link='/reviews' />
           <SideCardsCircle  title={textData.whyus.facilities[1][0]} image={results} text={textData.whyus.facilities[1][1]} buttonText='Result Page' link='/results' />
-          <SideCardsCircle  title={textData.whyus.facilities[2][0]} image={elearn} text={textData.whyus.facilities[2][1]} buttonText='Student Login' link='/login' />
+          <SideCardsCircle  title={textData.whyus.facilities[2][0]} image={elearn} text={textData.whyus.facilities[2][1]} buttonText='User Portal' link='/login' />
         
           </Grid>
         </Grid>
@@ -207,7 +207,7 @@ const AboutUs = () => {
                 <br />
                 <br />
 
-                <a href="/" style={{ textDecoration: "none" }}>
+                <a href="/booktrial" style={{ textDecoration: "none" }}>
                   <Button variant="contained">{textData.Book}</Button>
                 </a>
               </div>
@@ -244,7 +244,7 @@ const AboutUs = () => {
 
                 <br />
 
-                <a href="/" style={{ textDecoration: "none" }}>
+                <a href="/booktrial" style={{ textDecoration: "none" }}>
                   <Button variant="contained"> {textData.Book} </Button>
                 </a>
               </div>

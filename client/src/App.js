@@ -19,6 +19,8 @@ import GetAllMessages from './Admin/MessagesGetAll';
 import CheckFutureSchedule from './Admin/futureSchedule';
 import ToDoList from './Admin/todolist';
 import DescriptionStudent from './Student/DescriptionStudent';
+import BookTrialClass from './Screen/trialClassScreen';
+import TrailClassGetAll from './Admin/trialclassGetAll';
 
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
        <Route path='/results' element={<ResultScreenPage/>} ></Route>
        <Route path='/contact' element={<ContactUs/>} ></Route>
        <Route path='/login' element={<StudentLogin/>} ></Route>
+       <Route path='/booktrial' element={<BookTrialClass/>} ></Route>
        <Route path='/register' element={<RegisterStudent/>} ></Route>
        <Route path='/developer' element={<AboutDeveloper/>} ></Route>
        {student&&(<Route path='/student' element={<StudentPage/>} />)}
@@ -47,6 +50,7 @@ function App() {
        {admin&&(<Route path='/admin/studentlist' element={<StudentList/>} ></Route>)}
        {admin&&(<Route path='/admin/messages' element={<GetAllMessages/>} ></Route>)}
        {admin&&(<Route path='/admin/schedule' element={<ToDoList/>} ></Route>)}
+       {admin&&(<Route path='/admin/trialclass' element={<TrailClassGetAll/>} ></Route>)}
        {admin&&(<Route path='/admin/futureschedule' element={<CheckFutureSchedule/>} ></Route>)}
      </Routes>
      </BrowserRouter>

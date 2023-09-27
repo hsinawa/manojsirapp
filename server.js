@@ -14,6 +14,8 @@ const trailClassRoutes = require("./routes/trailClassRoutes");
 const ResultsRoutes = require("./routes/resultRoutes");
 const StudentRoutes = require("./routes/studentRoutes");
 const ReviewRoutes = require("./routes/reviewRoute");
+const LectureRouter = require('./routes/LectureRoutes')
+const TestRouter = require('./routes/testRoutes')
 
 app.use("/api/admin/", AdminRoute);
 app.use("/api/message/", messageRoute);
@@ -22,6 +24,8 @@ app.use("/api/trialclass/", trailClassRoutes);
 app.use("/api/results/", ResultsRoutes);
 app.use("/api/students/", StudentRoutes);
 app.use("/api/reviews/", ReviewRoutes);
+app.use("/api/lecture/", LectureRouter);
+app.use("/api/test/", TestRouter);
 
 // app.use(express.static(path.join(__dirname, "./client/build")));
 
