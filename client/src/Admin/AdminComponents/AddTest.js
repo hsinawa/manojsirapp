@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { StudentGetValidByClassAction } from "../../Actions/studentAction";
 import { GetAllStudentsReducer } from "../../Reducers/studentReducer";
 import Calendar from "react-calendar";
+import { TestAddAction } from "../../Actions/testAction";
+import {AddTestReducer} from '../../Reducers/testReducer'
 
 //Static
 import "react-calendar/dist/Calendar.css";
@@ -18,7 +20,8 @@ import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Loader2 from "../../Component/Loader";
-import { TestAddAction } from "../../Actions/testAction";
+import { CircularProgress } from "@mui/material";
+
 
 const AddTest = () => {
   const dispatch = useDispatch();
@@ -37,6 +40,8 @@ const AddTest = () => {
     (state) => state.GetAllStudentsReducer
   );
 
+  const {loadingtest} = useSelector(state=>state.AddTestReducer)
+
   const [selectedDate, setSelectedDate] = React.useState(new Date());
 
   const handleDateChange = (date) => {
@@ -48,7 +53,7 @@ const AddTest = () => {
     const data = {
       name: name,
       subject: subject,
-      examdate: selectedDate,
+      selectedDate: selectedDate,
       standard: standard,
       comment: comment,
       MaxMarks: MaxMarks,
@@ -196,6 +201,30 @@ const AddTest = () => {
                 md={12}
                 style={{ marginLeft: "auto", marginRight: "auto" }}
               >
+            <TextField
+                  id="outlined-basic"
+                  label="Total Marks"
+                  fullWidth
+                  variant="outlined"
+                  autoComplete="off"
+                  type="number"
+                  required
+                  style={{
+                    width: "100%",
+                  }}
+                  value={MaxMarks}
+                  onChange={(e) => {
+                    setMaxMarks(e.target.value);
+                  }}
+                />
+              </Grid>
+
+              <Grid
+                item
+                xs={12}
+                md={12}
+                style={{ marginLeft: "auto", marginRight: "auto" }}
+              >
                 <Button
                   variant="contained"
                   value="submit"
@@ -210,8 +239,9 @@ const AddTest = () => {
                     marginLeft: "auto",
                   }}
                 >
-                  Add
-                  {/* {loading ? <Loader2 /> : <p>Add</p>} */}
+                  
+                  {loading ? (<Loader2 />) : (
+                    loadingtest? (<CircularProgress/>):(<p> ADD NOW </p>) )}
                 </Button>
               </Grid>
             </Grid>

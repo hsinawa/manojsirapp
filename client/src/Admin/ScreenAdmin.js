@@ -36,7 +36,7 @@ const DashBoardGrid = [
         heading:'Test',
         image:test,
         text:'See and Add Test' ,
-        link:'/admin/addtest'
+        link:'/admin/checktest'
     } ,
 
     {

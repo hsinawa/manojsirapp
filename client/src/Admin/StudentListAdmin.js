@@ -136,15 +136,13 @@ const StudentList = () => {
                       {" "}
                       {i.ActiveLogins}{" "}
                     </td>
-                    <a href={`/studentdescription/${i._id}`}> <td
+                    <td
                       data-label={`${textData.Students.Table.tableEntries[6]}`}
-                    >
-                      {" "}
-                     
-                        {" "}
+                    > <a href={`/studentdescription/${i._id}`}>
+                      <p>
                         <RemoveRedEyeIcon />{" "}
-                      {" "}
-                    </td></a>
+                     </p>
+                      </a> </td>
                   </tr>
                 );
               })}
