@@ -59,7 +59,7 @@ router.post("/GetDescription", async (req, res) => {
 router.post("/updateStatus", async (req, res) => {
   try {
     const {reviewid} = req.body;
-    console.log('The status is', reviewid ,'--------' ,req.body.AccountStatus )
+    
     const UpdatedStatus = await Review.findByIdAndUpdate(
       { _id: reviewid },
       {

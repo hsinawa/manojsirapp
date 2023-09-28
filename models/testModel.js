@@ -26,6 +26,13 @@ const TestSchema = mongoose.Schema(
       type: Boolean,
       trim: true,
       require,
+      default:true
+    },
+
+    comment:{
+      type: String,
+      trim: true,
+      require,
     },
 
     testPaperLink: {
@@ -34,8 +41,18 @@ const TestSchema = mongoose.Schema(
       require,
      },
 
+     answerLink: {
+      type: String,
+      trim: true,
+      require,
+     },
+
     students: [
       {
+        iDofStudent : {
+          type: String,
+          require,
+        },
         NameOfStudent: {
           type: String,
           require,

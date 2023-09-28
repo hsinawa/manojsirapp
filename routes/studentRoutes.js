@@ -119,6 +119,22 @@ router.get("/getall", async (req, res) => {
   }
 });
 
+router.post("/getValidByClass", async (req, res) => {
+  try {
+    const { standard } = req.body;
+ 
+    const docs = await StudentSchema.find({
+      standard: standard,
+      isAccountValid: 1,
+    });
+
+    console.log('The status is', docs)
+    res.send(result);
+  } catch (err) {
+    res.status(400).json({ message: "Something Went Wrong" });
+  }
+});
+
 router.post("/updateStatus", async (req, res) => {
   try {
     const id = req.body.studentid;

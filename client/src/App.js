@@ -24,6 +24,7 @@ import TrailClassGetAll from './Admin/trialclassGetAll';
 import ReviewScreen from './Screen/reviewScreen';
 import AdminReviewScreen from './Admin/ReviewAdminScreen';
 import ReviewDescription from './Admin/AdminComponents/ReviewDescription';
+import AddTest from './Admin/AdminComponents/AddTest';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
        {admin&&(<Route path='/admin/trialclass' element={<TrailClassGetAll/>} ></Route>)}
        {admin&&(<Route path='/admin/futureschedule' element={<CheckFutureSchedule/>} ></Route>)}
        {admin&&(<Route path='/admin/reviews' element={<AdminReviewScreen/>} ></Route>)}
+       {admin&&(<Route path='/admin/addtest' element={<AddTest/>} ></Route>)}
      </Routes>
      </BrowserRouter>
      <br/><br/>

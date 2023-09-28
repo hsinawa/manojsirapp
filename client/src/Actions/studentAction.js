@@ -73,20 +73,37 @@ export const StudentGETDescriptionAction =
       });
   };
 
+export const StudentGetValidByClassAction =
+  ({ standard }) =>
+  (dispatch) => {
+    dispatch({ type: StudentGETReq });
+
+    axios
+      .post(`${Student_API}/getValidByClass`, { standard })
+      .then((res) => {
+        dispatch({ type: StudentGETSuc, payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: StudentGETFail, payload: err });
+      });
+  };
+
 const UpdateStudent_Req = "UpdateStudent_Req";
 const UpdateStudent_Suc = "UpdateStudent_Suc";
 const UpdateStudent_Fail = "UpdateStudent_Fail";
 
-export const StudentUpdateAction = ({AccountStatus,studentid}) => (dispatch) => {
-  dispatch({ type: UpdateStudent_Req });
-  axios
-    .post(`${Student_API}/updateStatus`, {AccountStatus,studentid})
-    .then((res) => {
-      dispatch({ type: UpdateStudent_Suc, payload: res.data });
-      alert('Updated')
-      window.location.reload()
-    })
-    .catch((err) => {
-      dispatch({ type: UpdateStudent_Fail, payload: err });
-    });
-};
+export const StudentUpdateAction =
+  ({ AccountStatus, studentid }) =>
+  (dispatch) => {
+    dispatch({ type: UpdateStudent_Req });
+    axios
+      .post(`${Student_API}/updateStatus`, { AccountStatus, studentid })
+      .then((res) => {
+        dispatch({ type: UpdateStudent_Suc, payload: res.data });
+        alert("Updated");
+        window.location.reload();
+      })
+      .catch((err) => {
+        dispatch({ type: UpdateStudent_Fail, payload: err });
+      });
+  };
