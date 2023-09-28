@@ -27,3 +27,61 @@ export const ReviewReducer = (state = {}, action) => {
       return state;
   }
 };
+
+export const GetAllReviewReducer = (state = { reviews: [] }, action) => {
+  switch (action.type) {
+    case Rev_Req:
+      return {
+        ...state,
+        loadingReviews: true,
+      };
+
+    case Rev_Suc:
+      return {
+        ...state,
+        loadingReviews: false,
+        reviews: action.payload,
+      };
+
+    case Rev_Fail:
+      return {
+        ...state,
+        loadingReviews: true,
+        errorReviews: false,
+      };
+
+    default:
+      return state;
+  }
+};
+
+const ValidRev_Req = "ValidRev_Req";
+const ValidRev_Suc = "ValidRev_Suc";
+const ValidRev_Fail = "ValidRev_Fail";
+
+export const GetValidReviewReducer = (state = { reviews: [] }, action) => {
+  switch (action.type) {
+    case ValidRev_Req:
+      return {
+        ...state,
+        loadingReviews: true,
+      };
+
+    case ValidRev_Suc:
+      return {
+        ...state,
+        loadingReviews: false,
+        reviews: action.payload,
+      };
+
+    case ValidRev_Fail:
+      return {
+        ...state,
+        loadingReviews: true,
+        errorReviews: false,
+      };
+
+    default:
+      return state;
+  }
+};

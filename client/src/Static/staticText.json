@@ -87,6 +87,11 @@
 
   "Reviews":{
     "name":"Empowering Achievers, Sharing Stories",
-    "add":"Write a Review"
-  }
+    "add":"Write a Review",
+    "admin":{
+      "table":[ "S.NO", "name", "status", "Date", "Watch More" ]
+    }
+  } 
+
+
 }

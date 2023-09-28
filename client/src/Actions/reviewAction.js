@@ -19,3 +19,33 @@ export const ReviewAddAction = (data) => (dispatch) => {
       window.location.href = "/error";
     });
 };
+
+
+export const GetAllReviewAction = () => (dispatch) => {
+  dispatch({ type: Rev_Req });
+  axios
+    .get(`${Rev_API}/getall`)
+    .then((res) => {
+      dispatch({ type: Rev_Suc, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: Rev_Fail, payload: err });
+    });
+};
+
+
+const ValidRev_Req = "ValidRev_Req";
+const ValidRev_Suc = "ValidRev_Suc";
+const ValidRev_Fail = "ValidRev_Fail";
+
+export const GetValidReviewAction = () => (dispatch) => {
+  dispatch({ type: ValidRev_Req });
+  axios
+    .get(`${Rev_API}/getvalid`)
+    .then((res) => {
+      dispatch({ type: ValidRev_Suc, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: ValidRev_Fail, payload: err });
+    });
+};

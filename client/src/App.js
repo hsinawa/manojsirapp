@@ -22,6 +22,7 @@ import DescriptionStudent from './Student/DescriptionStudent';
 import BookTrialClass from './Screen/trialClassScreen';
 import TrailClassGetAll from './Admin/trialclassGetAll';
 import ReviewScreen from './Screen/reviewScreen';
+import AdminReviewScreen from './Admin/ReviewAdminScreen';
 
 
 function App() {
@@ -54,6 +55,7 @@ function App() {
        {admin&&(<Route path='/admin/schedule' element={<ToDoList/>} ></Route>)}
        {admin&&(<Route path='/admin/trialclass' element={<TrailClassGetAll/>} ></Route>)}
        {admin&&(<Route path='/admin/futureschedule' element={<CheckFutureSchedule/>} ></Route>)}
+       {admin&&(<Route path='/admin/reviews' element={<AdminReviewScreen/>} ></Route>)}
      </Routes>
      </BrowserRouter>
      <br/><br/>

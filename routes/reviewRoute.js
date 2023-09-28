@@ -12,7 +12,7 @@ router.post("/addReview", async (req, res) => {
       email: req.body.email,
       comment: req.body.comment,
       schoolName: req.body.schoolName,
-      rating: req.body.rating,
+      rating: req.body.value,
     });
 
     await rev.save();

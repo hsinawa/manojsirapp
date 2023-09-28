@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import textData from "../Static/staticText.json";
-import { useDispatch , useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ReviewReducer } from "../Reducers/reviewReducer";
-import { ReviewAddAction } from "../Actions/reviewAction";
-import Loader2 from '../Component/Loader'
+import {
+  GetValidReviewAction,
+  ReviewAddAction,
+} from "../Actions/reviewAction";
+import Loader2 from "../Component/Loader";
+import ReviewCard from "../Component/ResultCard";
+
+//Style
+import "../Styles/ReviewStyle.css";
 
 //MUI
 import Button from "@mui/joy/Button";
@@ -13,7 +20,7 @@ import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
 import TextField from "@mui/material/TextField";
 import Rating from "@mui/material/Rating";
-
+import { CircularProgress } from "@mui/material";
 
 const StyleComponents = {
   CenterBody: {
@@ -42,12 +49,21 @@ const ReviewScreen = () => {
       email: email,
       comment: comment,
       schoolName: schoolName,
+      value: value,
     };
 
     dispatch(ReviewAddAction(data));
   };
 
-  const {loading,error} = useSelector(state=>state.ReviewReducer)
+  const { loading, error } = useSelector((state) => state.ReviewReducer);
+
+  useEffect(() => {
+    dispatch(GetValidReviewAction());
+  }, [dispatch]);
+
+  const { loadingReviews, reviews, errorReviews } = useSelector(
+    (state) => state.GetValidReviewReducer
+  );
 
   return (
     <div style={StyleComponents.CenterBody}>
@@ -131,7 +147,14 @@ const ReviewScreen = () => {
                 }}
                 value={name}
                 onChange={(e) => {
-                  setname(e.target.value);
+                  const inputValue = e.target.value;
+
+                  if (inputValue.length <= 300) {
+                    setname(inputValue);
+                  }
+                  else if(inputValue.length>300){
+                    document.getElementById('errorwords').innerHTML = `Limit to 300 Words`
+                  }
                 }}
               />
 
@@ -191,10 +214,17 @@ const ReviewScreen = () => {
                 }}
                 value={comment}
                 onChange={(e) => {
-                  setComment(e.target.value);
+                  const inputValue = e.target.value;
+
+                  if (inputValue.length <= 150) {
+                    setComment(inputValue);
+                  }
+                  else if(inputValue.length>150){
+                    document.getElementById('errorwords').innerHTML = `Limit to 150 Words`
+                  }
                 }}
               />
-
+<p id='errorwords' style={{color:'red'}} >  </p>
               <br />
               <br />
               <Button
@@ -210,12 +240,26 @@ const ReviewScreen = () => {
                   marginRight: "auto",
                 }}
               >
-               {loading?(<Loader2/>):('Send')}
+                {loading ? <Loader2 /> : "Send"}
+                {error && (window.location.href = "/error")}
               </Button>
             </Typography>
           </form>
         </Sheet>
       </Modal>
+      {loadingReviews && <CircularProgress />}
+      {errorReviews && (
+        <h3 style={{ color: "red" }}> OOPS! Couldn't load Reviews </h3>
+      )}
+      <br />
+      <br />
+      <div className="threeGrid">
+        {" "}
+        {reviews &&
+          reviews.map((i) => {
+            return <ReviewCard i={i} />;
+          })}{" "}
+      </div>
     </div>
   );
 };

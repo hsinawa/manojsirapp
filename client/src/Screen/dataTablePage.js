@@ -19,7 +19,7 @@ const SomeStatistics = () => {
         };
     
         React.useEffect(() => {
-          counter(1900, 1995);
+          counter(1900, 1999);
           return () => {
             clearTimeout(counterTimeout);
           };
