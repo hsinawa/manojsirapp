@@ -8,6 +8,12 @@ const TestSchema = mongoose.Schema(
       require,
     },
 
+    dateOfExam: {
+      type: String,
+      trim: true,
+      require,
+    },
+
     standard: {
       type: Number,
       trim: true,
@@ -26,10 +32,10 @@ const TestSchema = mongoose.Schema(
       type: Boolean,
       trim: true,
       require,
-      default:true
+      default: true,
     },
 
-    comment:{
+    comment: {
       type: String,
       trim: true,
       require,
@@ -39,17 +45,21 @@ const TestSchema = mongoose.Schema(
       type: String,
       trim: true,
       require,
-     },
+    },
 
-     answerLink: {
+    answerLink: {
       type: String,
       trim: true,
       require,
-     },
-
+    },
+    subject: {
+      type: String,
+      trim: true,
+      require,
+    },
     students: [
       {
-        iDofStudent : {
+        iDofStudent: {
           type: String,
           require,
         },
@@ -58,7 +68,16 @@ const TestSchema = mongoose.Schema(
           require,
           trim: true,
         },
-
+        email: {
+          type: String,
+          require,
+          trim: true,
+        },
+        contactnumber: {
+          type: String,
+          require,
+          trim: true,
+        },
         SchoolName: {
           type: String,
           require,
@@ -67,17 +86,17 @@ const TestSchema = mongoose.Schema(
 
         MarksScored: {
           type: Number,
-          default: 100,
+          default: 0,
           require,
         },
         TotalMarks: {
           type: Number,
-          default: 100,
+          default: 0,
           require,
         },
         PercentageObtained: {
           type: Number,
-          default: 100,
+          default: 0,
           require,
         },
       },

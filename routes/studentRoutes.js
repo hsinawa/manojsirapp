@@ -122,14 +122,28 @@ router.get("/getall", async (req, res) => {
 router.post("/getValidByClass", async (req, res) => {
   try {
     const { standard } = req.body;
- 
-    const docs = await StudentSchema.find({
-      standard: standard,
-      isAccountValid: 1,
-    });
 
-    console.log('The status is', docs)
-    res.send(result);
+    const pipeline = [
+      {
+        $match: {
+          standard: standard,
+          isAccountValid: true,
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          email: 1,
+          schoolName: 1,
+          contactnumber: 1,
+        },
+      },
+    ];
+
+    const docs = await StudentSchema.aggregate(pipeline);
+   
+    res.status(200).send(docs);
   } catch (err) {
     res.status(400).json({ message: "Something Went Wrong" });
   }

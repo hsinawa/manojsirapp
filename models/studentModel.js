@@ -28,7 +28,7 @@ const StudentSchema = mongoose.Schema(
     },
 
     standard: {
-      type: String,
+      type: Number,
       trim: true,
       require,
     },
