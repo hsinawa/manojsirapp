@@ -85,3 +85,32 @@ export const GetValidReviewReducer = (state = { reviews: [] }, action) => {
       return state;
   }
 };
+
+
+
+export const ReviewDescriptionReducer = (state = {  }, action) => {
+  switch (action.type) {
+    case Rev_Req:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case Rev_Suc:
+      return {
+        ...state,
+        loading: false,
+        reviews: action.payload,
+      };
+
+    case Rev_Fail:
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+
+    default:
+      return state;
+  }
+};

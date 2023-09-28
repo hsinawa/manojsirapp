@@ -43,13 +43,27 @@ router.get("/getvalid", async (req, res) => {
   }
 });
 
+router.post("/GetDescription", async (req, res) => {
+    try {
+      const { reviewid } = req.body;
+  
+      const Descriptiondata = await Review.find({ _id: reviewid });
+  
+      res.status(200).send(Descriptiondata);
+    } catch (err) {
+      return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+    }
+  });
+
+
 router.post("/updateStatus", async (req, res) => {
   try {
-    const id = req.body.id;
+    const {reviewid} = req.body;
+    console.log('The status is', reviewid ,'--------' ,req.body.AccountStatus )
     const UpdatedStatus = await Review.findByIdAndUpdate(
-      { _id: id },
+      { _id: reviewid },
       {
-        isValid: req.body.isValid,
+        isValid: req.body.AccountStatus,
       }
     );
     if (!UpdatedStatus) {

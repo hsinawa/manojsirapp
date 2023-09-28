@@ -16,7 +16,7 @@ import {
   GetAllStudentsReducer,
   GetDescriptionStudentsReducer,
 } from "./Reducers/studentReducer";
-import { ReviewReducer, GetValidReviewReducer ,GetAllReviewReducer} from "./Reducers/reviewReducer";
+import { ReviewReducer, GetValidReviewReducer ,GetAllReviewReducer,ReviewDescriptionReducer} from "./Reducers/reviewReducer";
 const FinalReducer = combineReducers({
   GetAllEnqReducer: GetAllEnqReducer,
   PostEnqReducer: PostEnqReducer,
@@ -32,7 +32,8 @@ const FinalReducer = combineReducers({
   GetDescriptionStudentsReducer: GetDescriptionStudentsReducer,
   ReviewReducer: ReviewReducer,
   GetValidReviewReducer:GetValidReviewReducer,
-  GetAllReviewReducer:GetAllReviewReducer
+  GetAllReviewReducer:GetAllReviewReducer,
+  ReviewDescriptionReducer:ReviewDescriptionReducer
 });
 
 const InitialState = {};

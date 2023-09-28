@@ -23,6 +23,7 @@ import BookTrialClass from './Screen/trialClassScreen';
 import TrailClassGetAll from './Admin/trialclassGetAll';
 import ReviewScreen from './Screen/reviewScreen';
 import AdminReviewScreen from './Admin/ReviewAdminScreen';
+import ReviewDescription from './Admin/AdminComponents/ReviewDescription';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
        <Route path='/adminlogin' element={<AdminLogin/>}   ></Route>
        {admin&&(<Route path='/admin' element={<AdminScreen/>} ></Route>)}
        {admin&&(<Route path={`/studentdescription/:studentid`} element={<DescriptionStudent/>} ></Route>)}
+       {admin&&(<Route path={`/reviewdescription/:reviewid`} element={<ReviewDescription/>} ></Route>)}
        {admin&&(<Route path='/admin/studentlist' element={<StudentList/>} ></Route>)}
        {admin&&(<Route path='/admin/messages' element={<GetAllMessages/>} ></Route>)}
        {admin&&(<Route path='/admin/schedule' element={<ToDoList/>} ></Route>)}

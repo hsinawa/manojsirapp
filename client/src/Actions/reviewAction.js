@@ -49,3 +49,38 @@ export const GetValidReviewAction = () => (dispatch) => {
       dispatch({ type: ValidRev_Fail, payload: err });
     });
 };
+
+
+
+export const ReviewGetDescriptionAction =
+  ({ reviewid }) =>
+  (dispatch) => {
+    dispatch({ type: Rev_Req });
+
+    axios
+      .post(`${Rev_API}/GetDescription`, { reviewid })
+      .then((res) => {
+        dispatch({ type: Rev_Suc, payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: Rev_Fail, payload: err });
+      });
+  };
+
+const UpdateRev_Req = "UpdateRev_Req";
+const UpdateRev_Suc = "UpdateRev_Suc";
+const UpdateRev_Fail = "UpdateRev_Fail";
+
+export const ReviewStatusUPdateAction = ({AccountStatus,reviewid}) => (dispatch) => {
+  dispatch({ type: UpdateRev_Req });
+  axios
+    .post(`${Rev_API}/updateStatus`, {AccountStatus,reviewid})
+    .then((res) => {
+      dispatch({ type: UpdateRev_Suc, payload: res.data });
+      alert('Updated')
+      window.location.href='/admin/reviews'
+    })
+    .catch((err) => {
+      dispatch({ type: UpdateRev_Fail, payload: err });
+    });
+};

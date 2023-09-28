@@ -68,7 +68,7 @@ var cnt=0;
                     
                     <td
                       data-label={`${textData.Students.Table.tableEntries[4]}`}
-                    ><a href={`/studentdescription/${i._id}`}  > 
+                    ><a href={`/reviewdescription/${i._id}`}  > 
                       
                        Edit Here <RemoveRedEyeIcon style={{verticalAlign:'-6px'}} />
                         </a>
