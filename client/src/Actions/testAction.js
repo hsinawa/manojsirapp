@@ -11,7 +11,7 @@ export const TestAddAction = (data) => (dispatch) => {
     .post(`${Test_API}/addTest`, data)
     .then((res) => {
       dispatch({ type: Test_Suc });
-     window.location.href='/admin/checktest'
+      window.location.href = "/admin/checktest";
     })
     .catch((err) => {
       dispatch({ type: Test_Fail, payload: err });
@@ -29,12 +29,49 @@ export const GetAllTestAction = () => (dispatch) => {
   axios
     .get(`${Test_API}/getall`)
     .then((res) => {
-      dispatch({ type: GetTest_Suc, payload:res.data });
-     
+      dispatch({ type: GetTest_Suc, payload: res.data });
     })
     .catch((err) => {
       dispatch({ type: GetTest_Fail, payload: err });
 
+      window.location.href = "/error";
+    });
+};
+
+const UploadTest_Req = "UploadTest_Req";
+const UploadTest_Suc = "UploadTest_Suc";
+const UploadTest_Fail = "UploadTest_Fail";
+
+export const AddQuestionPaperAction = ({reportdata}) => (dispatch)=>{
+  dispatch({ type: UploadTest_Req });
+ 
+  axios
+    .post(`${Test_API}/addQuestionPaper`, {reportdata})
+    .then((res) => {
+      dispatch({ type: UploadTest_Suc });
+      alert("Uploaded !");
+      window.location.reload();
+    })
+    .catch((err) => {
+      dispatch({ type: UploadTest_Fail, payload: err });
+      window.location.href = "/error";
+    });
+};
+
+
+
+export const AddAnswerPaperAction = ({reportdata}) => (dispatch)=>{
+  dispatch({ type: UploadTest_Req });
+ 
+  axios
+    .post(`${Test_API}/addAnswerPaper`, {reportdata})
+    .then((res) => {
+      dispatch({ type: UploadTest_Suc });
+      alert("Uploaded !");
+      window.location.reload();
+    })
+    .catch((err) => {
+      dispatch({ type: UploadTest_Fail, payload: err });
       window.location.href = "/error";
     });
 };

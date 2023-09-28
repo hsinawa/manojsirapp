@@ -59,5 +59,32 @@ router.get("/getall", async (req, res) => {
   }
 });
 
+router.post("/addQuestionPaper", async (req, res) => {
+  try {
+    const updatedTask = await Test.findByIdAndUpdate(
+      req.body.reportdata.id,
+      { testPaperLink: req.body.reportdata.resultURL },
+      { new: true }
+    );
+    res.send(updatedTask);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Something Went Wrong" });
+  }
+});
+
+router.post("/addAnswerPaper", async (req, res) => {
+  try {
+    const updatedTask = await Test.findByIdAndUpdate(
+      req.body.reportdata.id,
+      { answerLink: req.body.reportdata.resultURL2 },
+      { new: true }
+    );
+    res.send(updatedTask);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Something Went Wrong" });
+  }
+});
 
 module.exports = router;

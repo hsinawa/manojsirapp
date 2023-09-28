@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase";
+import {AddQuestionPaperAction,AddAnswerPaperAction} from '../Actions/testAction'
 
 //MUI
 import Card from "@mui/material/Card";
@@ -14,6 +15,7 @@ import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Sheet from "@mui/joy/Sheet";
+import { useDispatch } from "react-redux";
 
 const TestCard = ({ i }) => {
   const admin = localStorage.getItem("admin");
@@ -23,31 +25,29 @@ const TestCard = ({ i }) => {
   const [pdfUpload, setpdfUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
   const [resultURL, setresultURL] = useState("");
+  const dispatch = useDispatch();
 
-  
-
-  const AddQuestionPaper = async (e) => {
-    e.preventDefault();
+  const AddQuestionPaper =  async(e) => {
+   e.preventDefault()
     try {
       if (pdfUpload == null) return;
-      const imageRef = ref(storage, `testPapers/${i._id}-${i?.standard}`);
+      const imageRef = ref(storage, `testPapers/${i._id}-${i?.standard}-${new Date()}`);
       const snapshot = await uploadBytes(imageRef, pdfUpload);
       const url = await getDownloadURL(snapshot.ref);
 
       setImageUrls((prev) => [...prev, url]);
       setresultURL(url);
 
-      // const data = {
-      //   name: name,
-      //   resultURL: url,
-      //   standard: standard,
-      // };
-
-      // await dispatch(resultAddAction(data));
+      const reportdata = {
+        resultURL: url,
+        id: i._id,
+      };
+      
+     await  dispatch(AddQuestionPaperAction({ reportdata }));
     } catch (error) {
       alert(error);
     }
-  };
+};
 
   const [pdfUpload2, setpdfUpload2] = useState(null);
   const [imageUrls2, setImageUrls2] = useState([]);
@@ -57,20 +57,19 @@ const TestCard = ({ i }) => {
     e.preventDefault();
     try {
       if (pdfUpload2 == null) return;
-      const imageRef2 = ref(storage, `answerPapers/${i._id}-${i?.standard}`);
+      const imageRef2 = ref(storage, `answerPapers/${i._id}-${i?.standard}-${new Date()}`);
       const snapshot = await uploadBytes(imageRef2, pdfUpload2);
       const url = await getDownloadURL(snapshot.ref);
 
-      setImageUrls((prev) => [...prev, url]);
-      setresultURL(url);
+      setImageUrls2((prev) => [...prev, url]);
+      setresultURL2(url);
 
-      // const data = {
-      //   name: name,
-      //   resultURL: url,
-      //   standard: standard,
-      // };
+      const reportdata = {
+        resultURL2: url,
+        id: i._id,
+      };
 
-      // await dispatch(resultAddAction(data));
+       await dispatch(AddAnswerPaperAction({reportdata}));
     } catch (error) {
       alert(error);
     }
@@ -205,7 +204,7 @@ const TestCard = ({ i }) => {
                         boxShadow: "lg",
                       }}
                     >
-                         <Typography
+                      <Typography
                         component="h2"
                         id="modal-title"
                         level="h4"
