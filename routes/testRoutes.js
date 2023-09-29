@@ -113,7 +113,7 @@ router.post("/GetDescription", async (req, res) => {
     const { testid } = req.body;
 
     const Descriptiondata = await Test.find({ _id: testid });
-console.log(Descriptiondata)
+
     res.status(200).send(Descriptiondata);
   } catch (err) {
     return res.status(400).json({ message: `Something Went Wrong ${err} ` });

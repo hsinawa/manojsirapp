@@ -100,7 +100,6 @@ const TestCard = ({ i }) => {
 
   return (
     <div style={{ width: "90%", marginRight: "auto", marginLeft: "auto" }}>
-        <a href={`/testdecription/${i._id}`} style={{textDecoration:'none'}} >
       <Card>
         <CardActionArea>
           <CardContent>
@@ -114,33 +113,39 @@ const TestCard = ({ i }) => {
               {new Date(`${i?.dateOfExam}`)?.toString()?.substr(0, 15)}
             </Typography>
             <Typography variant="body1" color="text.secondary">
-              <section className="twoGrid">
-                <p style={{ color: "#6495ED" }}>
-                  <span style={{ fontWeight: "bold", color: "#002244" }}>
-                    Subject :{" "}
-                  </span>{" "}
-                  {i?.subject}
-                </p>
-                <p style={{ color: "#6495ED" }}>
-                  <span style={{ fontWeight: "bold", color: "#002244" }}>
-                    Class :{" "}
-                  </span>{" "}
-                  {i?.standard}th
-                </p>
-                <p style={{ color: "#6495ED" }}>
-                  <span style={{ fontWeight: "bold", color: "#002244" }}>
-                    Total Marks :{" "}
-                  </span>{" "}
-                  {i?.MaxMarks}
-                </p>
-                <p style={{ color: "#6495ED" }}>
-                  <span style={{ fontWeight: "bold", color: "#002244" }}>
-                    Additional Details :{" "}
-                  </span>{" "}
-                  {i?.comment}
-                </p>
-              </section>
+              <a
+                href={`/testdecription/${i._id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <section className="twoGrid">
+                  <p style={{ color: "#6495ED" }}>
+                    <span style={{ fontWeight: "bold", color: "#002244" }}>
+                      Subject :{" "}
+                    </span>{" "}
+                    {i?.subject}
+                  </p>
+                  <p style={{ color: "#6495ED" }}>
+                    <span style={{ fontWeight: "bold", color: "#002244" }}>
+                      Class :{" "}
+                    </span>{" "}
+                    {i?.standard}th
+                  </p>
+                  <p style={{ color: "#6495ED" }}>
+                    <span style={{ fontWeight: "bold", color: "#002244" }}>
+                      Total Marks :{" "}
+                    </span>{" "}
+                    {i?.MaxMarks}
+                  </p>
+                  <p style={{ color: "#6495ED" }}>
+                    <span style={{ fontWeight: "bold", color: "#002244" }}>
+                      Additional Details :{" "}
+                    </span>{" "}
+                    {i?.comment}
+                  </p>
+                </section>
+              </a>
             </Typography>
+
             {admin && (
               <p>
                 <hr />
@@ -286,7 +291,6 @@ const TestCard = ({ i }) => {
       </form>
       <br /> <hr />
       <br />
-      </a>
     </div>
   );
 };

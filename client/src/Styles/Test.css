@@ -36,4 +36,53 @@
   }
   
   /* Add additional styling as desired */
-  
+  /* MarksInput.css */
+
+.marks-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.marks-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.marks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.marks-row:hover {
+  background-color: #f0f0f0;
+}
+
+.marks-input {
+  width: 80px;
+  padding: 6px;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+}
+
+/* You can customize the styles further based on your preferences */
