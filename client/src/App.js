@@ -26,6 +26,7 @@ import AdminReviewScreen from './Admin/ReviewAdminScreen';
 import ReviewDescription from './Admin/AdminComponents/ReviewDescription';
 import AddTest from './Admin/AdminComponents/AddTest';
 import TestAdminList from './Admin/AdminComponents/TestListAdmin';
+import TestDescriptionScreen from './Component/TestDescription';
 
 
 function App() {
@@ -49,6 +50,7 @@ function App() {
        {student&&(<Route path='/student' element={<StudentPage/>} />)}
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>
+       <Route path='/testdecription/:testid' element={<TestDescriptionScreen/>} ></Route>
        <Route path='*' element={<ErrorPage/>} ></Route>
        <Route path='/adminlogin' element={<AdminLogin/>}   ></Route>
        {admin&&(<Route path='/admin' element={<AdminScreen/>} ></Route>)}

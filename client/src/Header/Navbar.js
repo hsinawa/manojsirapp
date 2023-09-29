@@ -62,7 +62,7 @@ return( <header id='navtop'
     id="nav-styles"
     style={{ float: "right", marginRight: "-33%" }}
   >
-     <a href="/" id="navbar-item">
+     <a href="/" id="navbar-item"  >
     <HomeIcon style={{verticalAlign:'-6px'}} />  Home
     </a>
 

@@ -61,3 +61,32 @@ export const GetAllTestReducer = (state = { tests: [] }, action) => {
       return state;
   }
 };
+
+
+
+export const GetDescriptionTestsReducer = (state = {  }, action) => {
+  switch (action.type) {
+    case GetTest_Req:
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case GetTest_Suc:
+      return {
+        ...state,
+        loading: false,
+        tests: action.payload,
+      };
+
+    case GetTest_Fail:
+      return {
+        ...state,
+        loading: true,
+        error: false,
+      };
+
+    default:
+      return state;
+  }
+};

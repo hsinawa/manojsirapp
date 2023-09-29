@@ -75,3 +75,38 @@ export const AddAnswerPaperAction = ({reportdata}) => (dispatch)=>{
       window.location.href = "/error";
     });
 };
+
+export const GetTestDescriptionAction =
+  ({ testid }) =>
+  (dispatch) => {
+    dispatch({ type: GetTest_Req });
+
+    axios
+      .post(`${Test_API}/GetDescription`, { testid })
+      .then((res) => {
+        dispatch({ type: GetTest_Suc, payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: GetTest_Fail, payload: err });
+      });
+  };
+
+const UpdateTest_Req = 'UpdateTest_Req'
+const UpdateTest_Suc = 'UpdateTest_Suc'
+const UpdateTest_Fail = 'UpdateTest_Fail'
+
+export const UpdateTestStatusAction =
+  ({ AccountStatus, testid }) =>
+  (dispatch) => {
+    dispatch({ type: UpdateTest_Req });
+    axios
+      .post(`${Test_API}/updateStatus`, { AccountStatus, testid })
+      .then((res) => {
+        dispatch({ type: UpdateTest_Suc, payload: res.data });
+        alert("Updated");
+        window.location.reload();
+      })
+      .catch((err) => {
+        dispatch({ type: UpdateTest_Fail, payload: err });
+      });
+  };

@@ -1,0 +1,39 @@
+/* TestDescription.css */
+
+.test-description {
+    
+    background-color: #fafafa93;
+    border:  none;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    overflow: auto;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .gridtest {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px;
+    text-align: left;
+  }
+  
+  .label {
+    font-weight: bold;
+    color: #007bff; /* Blue color */
+  }
+  
+  .value {
+    color: #555; /* Dark gray color */
+  }
+  
+  /* Add additional styling as desired */
+  

@@ -87,4 +87,37 @@ router.post("/addAnswerPaper", async (req, res) => {
   }
 });
 
+
+router.post("/updateStatus", async (req, res) => {
+  try {
+    const id = req.body.testid;
+    const UpdatedStatus = await Test.findByIdAndUpdate(
+      { _id: id },
+      {
+        isValid: !req.body.AccountStatus,
+      }
+    );
+    if (!UpdatedStatus) {
+      return res.status(400).json({ message: "Could not update" });
+    }
+
+    return res.status(200).send({ message: "Updated Successfully" });
+  } catch (err) {
+    return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+  }
+});
+
+
+router.post("/GetDescription", async (req, res) => {
+  try {
+    const { testid } = req.body;
+
+    const Descriptiondata = await Test.find({ _id: testid });
+console.log(Descriptiondata)
+    res.status(200).send(Descriptiondata);
+  } catch (err) {
+    return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+  }
+});
+
 module.exports = router;

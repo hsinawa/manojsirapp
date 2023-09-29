@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { storage } from "../firebase";
-import {AddQuestionPaperAction,AddAnswerPaperAction} from '../Actions/testAction'
+import {
+  AddQuestionPaperAction,
+  AddAnswerPaperAction,
+  UpdateTestStatusAction,
+} from "../Actions/testAction";
+import { useDispatch } from "react-redux";
 
 //MUI
 import Card from "@mui/material/Card";
@@ -15,7 +20,9 @@ import Button from "@mui/joy/Button";
 import Modal from "@mui/joy/Modal";
 import ModalClose from "@mui/joy/ModalClose";
 import Sheet from "@mui/joy/Sheet";
-import { useDispatch } from "react-redux";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
 
 const TestCard = ({ i }) => {
   const admin = localStorage.getItem("admin");
@@ -27,11 +34,16 @@ const TestCard = ({ i }) => {
   const [resultURL, setresultURL] = useState("");
   const dispatch = useDispatch();
 
-  const AddQuestionPaper =  async(e) => {
-   e.preventDefault()
+  var testid = i?._id;
+
+  const AddQuestionPaper = async (e) => {
+    e.preventDefault();
     try {
       if (pdfUpload == null) return;
-      const imageRef = ref(storage, `testPapers/${i._id}-${i?.standard}-${new Date()}`);
+      const imageRef = ref(
+        storage,
+        `testPapers/${i._id}-${i?.standard}-${new Date()}`
+      );
       const snapshot = await uploadBytes(imageRef, pdfUpload);
       const url = await getDownloadURL(snapshot.ref);
 
@@ -42,12 +54,12 @@ const TestCard = ({ i }) => {
         resultURL: url,
         id: i._id,
       };
-      
-     await  dispatch(AddQuestionPaperAction({ reportdata }));
+
+      await dispatch(AddQuestionPaperAction({ reportdata }));
     } catch (error) {
       alert(error);
     }
-};
+  };
 
   const [pdfUpload2, setpdfUpload2] = useState(null);
   const [imageUrls2, setImageUrls2] = useState([]);
@@ -57,7 +69,10 @@ const TestCard = ({ i }) => {
     e.preventDefault();
     try {
       if (pdfUpload2 == null) return;
-      const imageRef2 = ref(storage, `answerPapers/${i._id}-${i?.standard}-${new Date()}`);
+      const imageRef2 = ref(
+        storage,
+        `answerPapers/${i._id}-${i?.standard}-${new Date()}`
+      );
       const snapshot = await uploadBytes(imageRef2, pdfUpload2);
       const url = await getDownloadURL(snapshot.ref);
 
@@ -69,14 +84,23 @@ const TestCard = ({ i }) => {
         id: i._id,
       };
 
-       await dispatch(AddAnswerPaperAction({reportdata}));
+      await dispatch(AddAnswerPaperAction({ reportdata }));
     } catch (error) {
       alert(error);
     }
   };
 
+  const [AccountStatus, setAccountStatus] = React.useState();
+
+  const UpdateStatus = (e) => {
+    e.preventDefault();
+
+    dispatch(UpdateTestStatusAction({ AccountStatus, testid }));
+  };
+
   return (
     <div style={{ width: "90%", marginRight: "auto", marginLeft: "auto" }}>
+        <a href={`/testdecription/${i._id}`} style={{textDecoration:'none'}} >
       <Card>
         <CardActionArea>
           <CardContent>
@@ -235,8 +259,34 @@ const TestCard = ({ i }) => {
           </CardContent>
         </CardActionArea>
       </Card>
-
       <br />
+      <form onSubmit={UpdateStatus}>
+        <InputLabel id="demo-simple-select-label">Change Status</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={AccountStatus}
+          label="Status"
+          onChange={(e) => {
+            setAccountStatus(e.target.value);
+          }}
+        >
+          <br />
+          <br />
+          <h4> Complete Test? </h4>
+          <MenuItem value={true}>Yes</MenuItem>
+          <MenuItem value={false}>NO</MenuItem>
+        </Select>
+        <br />
+        <br />
+        <Button variant="outlined" type="submit" value="submit">
+          {" "}
+          Update{" "}
+        </Button>
+      </form>
+      <br /> <hr />
+      <br />
+      </a>
     </div>
   );
 };

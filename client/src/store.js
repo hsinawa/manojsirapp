@@ -24,7 +24,7 @@ import {
 } from "./Reducers/reviewReducer";
 
 import {
-  AddTestReducer,GetAllTestReducer
+  AddTestReducer,GetAllTestReducer,GetDescriptionTestsReducer
 } from './Reducers/testReducer'
 
 const FinalReducer = combineReducers({
@@ -45,7 +45,8 @@ const FinalReducer = combineReducers({
   GetAllReviewReducer: GetAllReviewReducer,
   ReviewDescriptionReducer: ReviewDescriptionReducer,
   AddTestReducer:AddTestReducer,
-  GetAllTestReducer:GetAllTestReducer
+  GetAllTestReducer:GetAllTestReducer,
+  GetDescriptionTestsReducer:GetDescriptionTestsReducer
 });
 
 const InitialState = {};

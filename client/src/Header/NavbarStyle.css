@@ -47,6 +47,10 @@
   #navbar-item:hover {
      color: #00b4d8;
     }
+
+    #navbar-item:active {
+      color: #00b4d8;
+     }
   
   nav a {
     margin: 0 1rem;
