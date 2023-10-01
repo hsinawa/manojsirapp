@@ -24,10 +24,10 @@ const GetTest_Req = "GetTest_Req";
 const GetTest_Suc = "GetTest_Suc";
 const GetTest_Fail = "GetTest_Fail";
 
-export const GetAllTestAction = () => (dispatch) => {
+export const GetAllTestAction = ({stand}) => (dispatch) => {
   dispatch({ type: GetTest_Req });
   axios
-    .get(`${Test_API}/getall`)
+    .post(`${Test_API}/getall`,{stand})
     .then((res) => {
       dispatch({ type: GetTest_Suc, payload: res.data });
     })
@@ -122,7 +122,7 @@ export const UpdateMarksAction = ({data, tid})=>(dispatch) =>{
   .then((res) => {
     dispatch({ type: UpdateMarks_Suc, payload: res.data });
     alert("Updated");
-   // window.location.reload();
+    window.location.reload();
   })
   .catch((err) => {
     dispatch({ type: UpdateMarks_Fail, payload: err });

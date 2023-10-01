@@ -27,6 +27,7 @@ import ReviewDescription from './Admin/AdminComponents/ReviewDescription';
 import AddTest from './Admin/AdminComponents/AddTest';
 import TestAdminList from './Admin/AdminComponents/TestListAdmin';
 import TestDescriptionScreen from './Component/TestDescription';
+import AddLectures from './Admin/AdminComponents/AddLectures';
 
 
 function App() {
@@ -64,6 +65,7 @@ function App() {
        {admin&&(<Route path='/admin/reviews' element={<AdminReviewScreen/>} ></Route>)}
        {admin&&(<Route path='/admin/addtest' element={<AddTest/>} ></Route>)}
        {admin&&(<Route path='/admin/checktest' element={<TestAdminList/>} ></Route>)}
+       {admin&&(<Route path='/admin/lectures' element={<AddLectures/>} ></Route>)}
      </Routes>
      </BrowserRouter>
      <br/><br/>

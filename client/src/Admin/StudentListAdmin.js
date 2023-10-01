@@ -52,7 +52,7 @@ const StudentList = () => {
               onChange={(e) => {
                 setSearchTerm(e.target.value);
               }}
-              label="Age"
+              label="Class"
             >
               <MenuItem value={9}>IX</MenuItem>
               <MenuItem value={10}>X</MenuItem>

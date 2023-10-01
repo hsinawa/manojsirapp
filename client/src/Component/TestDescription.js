@@ -13,9 +13,7 @@ import PlagiarismIcon from "@mui/icons-material/Plagiarism";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
-import AddResultsTest from './AddMarks'
-
-
+import AddResultsTest from "./AddMarks";
 
 const TestDescriptionScreen = () => {
   const { testid } = useParams();
@@ -33,7 +31,7 @@ const TestDescriptionScreen = () => {
   );
 
   const [addResult, setaddResult] = React.useState(false);
-
+var cnt =0
   return (
     <div>
       <br />
@@ -102,41 +100,75 @@ const TestDescriptionScreen = () => {
                   <PlagiarismIcon style={{ verticalAlign: "-6px" }} /> See Here{" "}
                 </a>{" "}
               </div>
-
-
             )}
           </div>
         </div>
- )}
-<br/><br/><br/>
+      )}
+      <br />
+      <br />
+      <br />
 
+      {admin && tests && (
+        <>
+          <hr />
+          <h4>Only for Admin</h4>
+          <InputLabel id="demo-simple-select-label">Add Results</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={addResult}
+            label="Status"
+            onChange={(e) => {
+              setaddResult(e.target.value);
+            }}
+          >
+            <br />
+            <br />
 
-{
-  admin && tests && (
-    <>
-      <hr />
-      <h4>Only for Admin</h4>
-      <InputLabel id="demo-simple-select-label">Add Results</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={addResult}
-          label="Status"
-          onChange={(e) => {
-            setaddResult(e.target.value);
-          }}
-        >
-          <br />
-          <br />
-         
-          <MenuItem value={true}>Yes</MenuItem>
-          <MenuItem value={false}>NO</MenuItem>
-        </Select>
-      {addResult && <AddResultsTest i = {tests} tid= {testid} />}
-    </>
-  )
-}
+            <MenuItem value={true}>Yes</MenuItem>
+            <MenuItem value={false}>NO</MenuItem>
+          </Select>
+          {addResult && <AddResultsTest i={tests} tid={testid} />}
+        </>
+      )}
 
+      {tests && (
+        <>
+          {!tests[0]?.isValid && (
+            <>
+              <table className="marks-table">
+                <thead>
+                  <tr>
+                    <th>S.NO</th>
+                    <th>Name</th>
+                    <th>School </th>
+                    <th>Marks Scored</th>
+                    <th>Percentage </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tests[0]?.students.map((person, index) => (
+                    <tr key={index} className="marks-row">
+                      <td>{++cnt}</td>
+                      <td>{person.NameOfStudent}</td>
+                      <td>{person.SchoolName}</td>
+                      <td>
+                       {person.MarksScored}
+                      </td>
+                      <td>
+                        {Math.floor(
+                          (parseInt(person.MarksScored) / tests[0]?.MaxMarks) *
+                            100
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </>
+          )}
+        </>
+      )}
     </div>
   );
 };
