@@ -38,7 +38,7 @@ const AddResultsTest = ({ i, tid }) => {
     setData(updatedData);
   };
 
-  console.log("Updated Data is", data);
+  
   const dispatch = useDispatch();
 
   const ONSubmitMarks = (e) => {
