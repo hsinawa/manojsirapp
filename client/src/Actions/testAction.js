@@ -110,3 +110,22 @@ export const UpdateTestStatusAction =
         dispatch({ type: UpdateTest_Fail, payload: err });
       });
   };
+
+
+const UpdateMarks_Req = 'UpdateMarks_Req'
+const UpdateMarks_Suc = 'UpdateMarks_Suc'
+const UpdateMarks_Fail = 'UpdateMarks_Fail'  
+export const UpdateMarksAction = ({data, tid})=>(dispatch) =>{
+  dispatch({ type: UpdateMarks_Req });
+  axios
+  .post(`${Test_API}/addResult`, {data, tid})
+  .then((res) => {
+    dispatch({ type: UpdateMarks_Suc, payload: res.data });
+    alert("Updated");
+   // window.location.reload();
+  })
+  .catch((err) => {
+    dispatch({ type: UpdateMarks_Fail, payload: err });
+  });
+
+}  

@@ -132,7 +132,7 @@ const TestDescriptionScreen = () => {
           <MenuItem value={true}>Yes</MenuItem>
           <MenuItem value={false}>NO</MenuItem>
         </Select>
-      {addResult && <AddResultsTest i = {tests} />}
+      {addResult && <AddResultsTest i = {tests} tid= {testid} />}
     </>
   )
 }

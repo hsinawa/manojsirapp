@@ -87,7 +87,6 @@ router.post("/addAnswerPaper", async (req, res) => {
   }
 });
 
-
 router.post("/updateStatus", async (req, res) => {
   try {
     const id = req.body.testid;
@@ -107,7 +106,6 @@ router.post("/updateStatus", async (req, res) => {
   }
 });
 
-
 router.post("/GetDescription", async (req, res) => {
   try {
     const { testid } = req.body;
@@ -117,6 +115,23 @@ router.post("/GetDescription", async (req, res) => {
     res.status(200).send(Descriptiondata);
   } catch (err) {
     return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+  }
+});
+
+router.post("/addResult", async (req, res) => {
+  try {
+    const docs = await Test.findByIdAndUpdate(
+      { _id: req.body.tid },
+      {
+        students: req.body.data,
+      },
+      { new: true }
+    );
+
+    res.status(200).send(docs);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Something Went Wrong" });
   }
 });
 
