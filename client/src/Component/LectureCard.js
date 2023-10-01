@@ -148,15 +148,12 @@ const LectureCard = ({ i }) => {
                       </a>{" "}
                     </p>
                   )}
-                  <p style={{ color: "#073980" }}> {i.comment} </p>
+                
                 </a>{" "}
               </section>
             </Grid>
           </Grid>
-        </Box>
-      </div>
-      <br />
-      <br />
+          <br />
       <br />
       {admin && (
         <form onSubmit={UpdateStatus}>
@@ -296,8 +293,14 @@ const LectureCard = ({ i }) => {
               </Sheet>
             </Modal>
           </section>
+          <hr/>
+          <br/><br/>
         </p>
       )}
+        </Box>
+      </div>
+      <br />
+
     </div>
   );
 };

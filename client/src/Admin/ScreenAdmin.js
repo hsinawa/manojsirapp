@@ -1,7 +1,8 @@
 import React from 'react';
 import './AdminStyle/AdminStyle.css';
-import GridCard from '../Component/Cards'
-
+import GridCard from '../Component/Cards';
+import Button from '@mui/material/Button';
+import { useDispatch } from 'react-redux';
 import schedule from './AdminImages/schedule.avif';
 import students from './AdminImages/students.avif';
 import result from '../Images/results.png';
@@ -10,6 +11,8 @@ import youtube from './AdminImages/youtube.png';
 import messages from './AdminImages/reviews.png';
 import reviews from './AdminImages/rev2.png';
 import trial from './AdminImages/trial.png';
+import { LogOutAdmin } from '../Actions/adminAction';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const DashBoardGrid = [
     {
@@ -67,15 +70,20 @@ const DashBoardGrid = [
         link:'/admin/trialclass'
     } ,
 
+   
+
 ]
 
 
 const AdminScreen = () => {
     const admin = JSON.parse( localStorage.getItem('admin') )
+    const dispatch = useDispatch()
     return(
         <div>
          <div id='studentform' style={{marginTop:'5%'}} >
             <h3 style={{textAlign:'left'}} > Professional Dashboard for {admin.name} </h3>
+
+            
             <section className='threeGrid' >
                 {
                     DashBoardGrid?.map((i,key)=>{
@@ -84,6 +92,14 @@ const AdminScreen = () => {
                 }
                 </section>
          </div>
+
+         <br/><br/> <br/><br/>
+         <Button variant="outlined" variant="outlined" color="error"
+         style={{width:'85%'}}
+         
+         onClick = { (e)=>{ dispatch(LogOutAdmin()) } } 
+
+         > <LogoutIcon style={{ verticalAlign:'-6px', color:'red' }} /> LOGOUT ADMIN </Button>
         </div>
     )
 }
