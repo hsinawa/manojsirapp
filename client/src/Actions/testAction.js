@@ -76,21 +76,6 @@ export const AddAnswerPaperAction = ({reportdata}) => (dispatch)=>{
     });
 };
 
-export const GetTestDescriptionAction =
-  ({ testid }) =>
-  (dispatch) => {
-    dispatch({ type: GetTest_Req });
-
-    axios
-      .post(`${Test_API}/GetDescription`, { testid })
-      .then((res) => {
-        dispatch({ type: GetTest_Suc, payload: res.data });
-      })
-      .catch((err) => {
-        dispatch({ type: GetTest_Fail, payload: err });
-      });
-  };
-
 const UpdateTest_Req = 'UpdateTest_Req'
 const UpdateTest_Suc = 'UpdateTest_Suc'
 const UpdateTest_Fail = 'UpdateTest_Fail'
@@ -110,6 +95,24 @@ export const UpdateTestStatusAction =
         dispatch({ type: UpdateTest_Fail, payload: err });
       });
   };
+  
+
+export const GetTestDescriptionAction =
+  ({ testid }) =>
+  (dispatch) => {
+    dispatch({ type: GetTest_Req });
+
+    axios
+      .post(`${Test_API}/GetDescription`, { testid })
+      .then((res) => {
+        dispatch({ type: GetTest_Suc, payload: res.data });
+      })
+      .catch((err) => {
+        dispatch({ type: GetTest_Fail, payload: err });
+      });
+  };
+
+
 
 
 const UpdateMarks_Req = 'UpdateMarks_Req'

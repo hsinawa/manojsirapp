@@ -7,6 +7,18 @@ const LectureSchema = mongoose.Schema(
       require: [true, "Name is required"],
       trim: true,
     },
+    standard:{
+      type: String,
+      require: [true, "Class is required"],
+      trim: true,
+    },
+
+    comment:{
+      type: String,
+      require: [true, "Class is required"],
+      trim: true,
+    },
+
     link: {
       type: String,
       require: [true, "Enter Link"],

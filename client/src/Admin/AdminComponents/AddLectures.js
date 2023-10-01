@@ -1,11 +1,172 @@
-import React from 'react'
+import React, { useState } from "react";
+import { LecturesAddAction } from "../../Actions/lectureAction";
+import { useDispatch } from "react-redux";
+
+//MUI
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select from "@mui/material/Select";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+
+
+const StyleDesign = {
+  widthDesign: {
+    width: "90%",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+};
+
+const AddVideoLecture = () => {
+  const [name, setName] = useState("");
+  const [link, setLink] = useState("");
+  const [standard, setStandard] = useState("");
+  const [comment, setComment] = useState("");
+  const dispatch = useDispatch();
+
+  const AddData = (e) => {
+    e.preventDefault();
+
+    const data = {
+      name: name,
+      link: link,
+      standard: standard,
+      comment: comment,
+    };
+    dispatch(LecturesAddAction(data));
+  };
+
+  return (
+    <div
+      style={{
+        boxShadow: "5px 5px 10px #888888, -5px -5px 10px #888888",
+      }}
+    >
+     <form onSubmit={AddData} >
+<br/><br/>
+     <TextField
+                  id="outlined-basic"
+                  label="Enter Name"
+                  fullWidth
+                  variant="outlined"
+                  autoComplete="off"
+                  type="text"
+                  required
+                  style={{
+                    width: "90%",
+                  }}
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.target.value);
+                  }}
+                />
+
+<br/><br/>
+     <TextField
+                  id="outlined-basic"
+                  label="Enter link"
+                  fullWidth
+                  variant="outlined"
+                  autoComplete="off"
+                  type="text"
+                  required
+                  style={{
+                    width: "90%",
+                  }}
+                  value={link}
+                  onChange={(e) => {
+                    setLink(e.target.value);
+                  }}
+                />
+<br/><br/>
+     <TextField
+                  id="outlined-basic"
+                  label="Enter Comment"
+                  fullWidth
+                  variant="outlined"
+                  autoComplete="off"
+                  type="text"
+                  required
+                  style={{
+                    width: "90%",
+                  }}
+                  value={comment}
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                />
+                <br/><br/>
+                <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Standard</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={standard}
+            label="Subject"
+            onChange={(e) => {
+              setStandard(e.target.value);
+            }}
+          >
+            <MenuItem value={'9'}>IX</MenuItem>
+              <MenuItem value={'10'}>X</MenuItem>
+              <MenuItem value={'11'}>XI</MenuItem>
+              <MenuItem value={'12'}>XII</MenuItem>
+          </Select>
+        </FormControl>
+
+     <Button
+                  variant="contained"
+                  value="submit"
+                  type="submit"
+                  style={{
+                    float: "left",
+                    backgroundColor: "#0C2340",
+                    width: "100%",
+                    marginLeft: "2%",
+                    fontSize: "20px",
+                    marginRight: "auto",
+                    marginLeft: "auto",
+                  }}
+                >
+                  Add
+                 
+                </Button>
+
+     </form>
+    </div>
+  );
+};
 
 const AddLectures = () => {
-    return(
-        <div>
-            This is Final
-        </div>
-    )
-}
+  const [add, setadd] = useState(false);
+  return (
+    <div>
+      <section style={StyleDesign.widthDesign}>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Subject</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={add}
+            label="Subject"
+            onChange={(e) => {
+              setadd(e.target.value);
+            }}
+          >
+            <MenuItem value={true}>Yes</MenuItem>
+            <MenuItem value={false}>No</MenuItem>
+          </Select>
+        </FormControl>
 
-export default AddLectures
+        <br />
+        <br />
+
+        {add && <AddVideoLecture />}
+      </section>
+    </div>
+  );
+};
+
+export default AddLectures;
