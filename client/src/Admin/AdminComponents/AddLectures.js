@@ -98,7 +98,7 @@ const AddVideoLecture = () => {
                   }}
                 />
                 <br/><br/>
-                <FormControl fullWidth>
+                <FormControl style={StyleDesign.widthDesign}>
           <InputLabel id="demo-simple-select-label">Standard</InputLabel>
           <Select
             labelId="demo-simple-select-label"
@@ -115,7 +115,7 @@ const AddVideoLecture = () => {
               <MenuItem value={'12'}>XII</MenuItem>
           </Select>
         </FormControl>
-
+<br/>
      <Button
                   variant="contained"
                   value="submit"
@@ -144,26 +144,12 @@ const AddLectures = () => {
   return (
     <div>
       <section style={StyleDesign.widthDesign}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Subject</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={add}
-            label="Subject"
-            onChange={(e) => {
-              setadd(e.target.value);
-            }}
-          >
-            <MenuItem value={true}>Yes</MenuItem>
-            <MenuItem value={false}>No</MenuItem>
-          </Select>
-        </FormControl>
-
+     
+      <AddVideoLecture />
         <br />
         <br />
 
-        {add && <AddVideoLecture />}
+      
       </section>
     </div>
   );

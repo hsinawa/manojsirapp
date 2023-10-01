@@ -30,7 +30,7 @@ router.post("/addTest", async (req, res) => {
     try {
       const {stand} = req.body
       const docs = await Lecture.find({standard:stand});
-  
+
       res.send(docs);
     } catch (err) {
       console.error(err);

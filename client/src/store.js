@@ -24,8 +24,12 @@ import {
 } from "./Reducers/reviewReducer";
 
 import {
-  AddTestReducer,GetAllTestReducer,GetDescriptionTestsReducer
-} from './Reducers/testReducer'
+  AddTestReducer,
+  GetAllTestReducer,
+  GetDescriptionTestsReducer,
+} from "./Reducers/testReducer";
+
+import {AddLectureReducer, GetAllLectureReducer} from './Reducers/lectureReducer'
 
 const FinalReducer = combineReducers({
   GetAllEnqReducer: GetAllEnqReducer,
@@ -44,9 +48,11 @@ const FinalReducer = combineReducers({
   GetValidReviewReducer: GetValidReviewReducer,
   GetAllReviewReducer: GetAllReviewReducer,
   ReviewDescriptionReducer: ReviewDescriptionReducer,
-  AddTestReducer:AddTestReducer,
-  GetAllTestReducer:GetAllTestReducer,
-  GetDescriptionTestsReducer:GetDescriptionTestsReducer
+  AddTestReducer: AddTestReducer,
+  GetAllTestReducer: GetAllTestReducer,
+  GetDescriptionTestsReducer: GetDescriptionTestsReducer,
+  AddLectureReducer:AddLectureReducer,
+  GetAllLectureReducer:GetAllLectureReducer
 });
 
 const InitialState = {};
