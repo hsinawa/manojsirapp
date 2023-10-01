@@ -265,30 +265,33 @@ const TestCard = ({ i }) => {
         </CardActionArea>
       </Card>
       <br />
-      <form onSubmit={UpdateStatus}>
-        <InputLabel id="demo-simple-select-label">Change Status</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={AccountStatus}
-          label="Status"
-          onChange={(e) => {
-            setAccountStatus(e.target.value);
-          }}
-        >
-          <br />
-          <br />
-          <h4> Complete Test? </h4>
-          <MenuItem value={true}>Yes</MenuItem>
-          <MenuItem value={false}>NO</MenuItem>
-        </Select>
-        <br />
-        <br />
-        <Button variant="outlined" type="submit" value="submit">
-          {" "}
-          Update{" "}
-        </Button>
-      </form>
+      {admin&&(
+ <form onSubmit={UpdateStatus}>
+ <InputLabel id="demo-simple-select-label">Change Status</InputLabel>
+ <Select
+   labelId="demo-simple-select-label"
+   id="demo-simple-select"
+   value={AccountStatus}
+   label="Status"
+   onChange={(e) => {
+     setAccountStatus(e.target.value);
+   }}
+ >
+   <br />
+   <br />
+   <h4> Complete Test? </h4>
+   <MenuItem value={true}>Yes</MenuItem>
+   <MenuItem value={false}>NO</MenuItem>
+ </Select>
+ <br />
+ <br />
+ <Button variant="outlined" type="submit" value="submit">
+   {" "}
+   Update{" "}
+ </Button>
+</form>
+      )}
+     
       <br /> <hr />
       <br />
     </div>

@@ -1,0 +1,13 @@
+.lecturecard{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 7px;
+    width: 90%;
+    margin:0 auto;
+    padding:10px;
+   
+}
+
+
+.lectureside{
+    text-align: left;
+}

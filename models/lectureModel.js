@@ -23,17 +23,19 @@ const LectureSchema = mongoose.Schema(
       type: String,
       require: [true, "Enter Link"],
       trim: true,
-      unique:true
+     unique:false
     },
 
     notesURL:{
         type: String,
+        default:'',
         require: [true, "Notes URL is required"],
         trim: true,
     },
 
     assignmentURL:{
         type: String,
+        default:'',
         require: [true, "Assignment URL is required"],
         trim: true,
     },
