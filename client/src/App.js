@@ -29,6 +29,7 @@ import TestAdminList from './Admin/AdminComponents/TestListAdmin';
 import TestDescriptionScreen from './Component/TestDescription';
 import AddLectures from './Admin/AdminComponents/AddLectures';
 import LectureList from './Admin/AdminComponents/LecturesListAdmin';
+import StudentLectureCategory from './Screen/StudentLectureCategory';
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
        <Route path='/developer' element={<AboutDeveloper/>} ></Route>
        <Route path='/reviews' element={<ReviewScreen/>} ></Route>
        {student&&(<Route path='/student' element={<StudentPage/>} />)}
+       {student&&(<Route path='/student/:subject' element={<StudentLectureCategory/>} />)}
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>
        <Route path='/testdecription/:testid' element={<TestDescriptionScreen/>} ></Route>

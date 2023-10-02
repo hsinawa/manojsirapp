@@ -13,6 +13,12 @@ const LectureSchema = mongoose.Schema(
       trim: true,
     },
 
+    subject:{
+      type: String,
+      require: [true, "Subject is required"],
+      trim: true,
+    },
+
     comment:{
       type: String,
       require: [true, "Class is required"],

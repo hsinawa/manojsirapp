@@ -22,8 +22,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
 import Typography from "@mui/material/Typography";
-import EditNoteIcon from '@mui/icons-material/EditNote';
-
+import EditNoteIcon from "@mui/icons-material/EditNote";
 
 const LectureCard = ({ i }) => {
   const admin = localStorage.getItem("admin");
@@ -127,7 +126,10 @@ const LectureCard = ({ i }) => {
                   {i?.notesURL?.length > 0 && (
                     <p>
                       {" "}
-                      <a href={`${i.notesURL}`} style={{textDecoration:'none'}} >
+                      <a
+                        href={`${i.notesURL}`}
+                        style={{ textDecoration: "none" }}
+                      >
                         {" "}
                         <TextSnippetIcon
                           style={{ verticalAlign: "-6px" }}
@@ -139,168 +141,179 @@ const LectureCard = ({ i }) => {
                   {i?.assignmentURL?.length > 0 && (
                     <p>
                       {" "}
-                      <a href={`${i.assignmentURL}`} style={{textDecoration:'none'}} >
+                      <a
+                        href={`${i.assignmentURL}`}
+                        style={{ textDecoration: "none" }}
+                      >
                         {" "}
-                        <EditNoteIcon
-                          style={{ verticalAlign: "-6px" }}
-                        />{" "}
+                        <EditNoteIcon style={{ verticalAlign: "-6px" }} />{" "}
                         Assignment{" "}
                       </a>{" "}
                     </p>
                   )}
-                
                 </a>{" "}
               </section>
             </Grid>
           </Grid>
           <br />
-      <br />
-      {admin && (
-        <form onSubmit={UpdateStatus}>
-          <hr />
-          <h4>This is Admin Only Area</h4>
-          <InputLabel id="demo-simple-select-label">Change Status</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={AccountStatus}
-            label="Status"
-            onChange={(e) => {
-              setAccountStatus(e.target.value);
-            }}
-          >
-            <br />
-            <br />
-            <h4> Is Available? </h4>
-            <MenuItem value={true}>Yes</MenuItem>
-            <MenuItem value={false}>NO</MenuItem>
-          </Select>
           <br />
-          <br />
-          <Button variant="outlined" type="submit" value="submit">
-            {" "}
-            Update{" "}
-          </Button>
-        </form>
-      )}
-
-      {admin && (
-        <p>
-          <section className="twoGrid">
-            <p
-              style={{ fontWeight: "bold", color: "#005A9C" }}
-              onClick={() => setOpen1(true)}
-            >
-              {" "}
-         <TextSnippetIcon style={{ verticalAlign: "-6px" }} />  Upload Notes
-            </p>
-            <Modal
-              aria-labelledby="modal-title"
-              aria-describedby="modal-desc"
-              open={open1}
-              onClose={() => setOpen1(false)}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Sheet
-                variant="outlined"
-                sx={{
-                  width: "80%",
-                  borderRadius: "md",
-                  p: 3,
-                  boxShadow: "lg",
+          {admin && (
+            <form onSubmit={UpdateStatus}>
+              <hr />
+              <h4>This is Admin Only Area</h4>
+              <InputLabel id="demo-simple-select-label">
+  
+                Change Status ( Current Status:{" "}
+                {i?.isValid ? (
+                  <span style={{ color: "green" }}> Available </span>
+                ) : (
+                  <span style={{ color: "red" }}> Not Available </span>
+                )}{" "}
+                ){" "}
+              </InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={AccountStatus}
+                label="Status"
+                onChange={(e) => {
+                  setAccountStatus(e.target.value);
                 }}
               >
-                <ModalClose variant="plain" sx={{ m: 1 }} />
-                <Typography
-                  component="h2"
-                  id="modal-title"
-                  level="h4"
-                  textColor="inherit"
-                  fontWeight="lg"
-                  mb={1}
-                >
-                  Upload Question Paper
-                </Typography>
                 <br />
                 <br />
-                <form onSubmit={AddNotes}>
-                  <input
-                    type="file"
-                    onChange={(event) => {
-                      setpdfUpload(event.target.files[0]);
-                    }}
-                  />
-                  <Button type="submit" value="submit" variant="outlined">
-                    Upload
-                  </Button>
-                </form>
-              </Sheet>
-            </Modal>
-            <p
-              style={{ fontWeight: "bold", color: "#005A9C" }}
-              onClick={() => setOpen2(true)}
-            >
-              {" "}
-              <EditNoteIcon style={{ verticalAlign: "-6px" }} />    Upload Assignment{" "}
-            </p>
-            <Modal
-              aria-labelledby="modal-title"
-              aria-describedby="modal-desc"
-              open={open2}
-              onClose={() => setOpen2(false)}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Sheet
-                variant="outlined"
-                sx={{
-                  maxWidth: 500,
-                  borderRadius: "md",
-                  p: 3,
-                  boxShadow: "lg",
-                }}
-              >
-                <Typography
-                  component="h2"
-                  id="modal-title"
-                  level="h4"
-                  textColor="inherit"
-                  fontWeight="lg"
-                  mb={1}
-                >
-                  Upload Assignments
-                </Typography>
+                <h4> Is Available? </h4>
+                <MenuItem value={true}>Yes</MenuItem>
+                <MenuItem value={false}>NO</MenuItem>
+              </Select>
+              <br />
+              <br />
+              <Button variant="outlined" type="submit" value="submit">
+                {" "}
+                Update{" "}
+              </Button>
+            </form>
+          )}
 
-                <ModalClose variant="plain" sx={{ m: 1 }} />
-                <form onSubmit={AddAnswerPaper}>
-                  <input
-                    type="file"
-                    onChange={(event) => {
-                      setpdfUpload2(event.target.files[0]);
+          {admin && (
+            <p>
+              <section className="twoGrid">
+                <p
+                  style={{ fontWeight: "bold", color: "#005A9C" }}
+                  onClick={() => setOpen1(true)}
+                >
+                  {" "}
+                  <TextSnippetIcon style={{ verticalAlign: "-6px" }} /> Upload
+                  Notes
+                </p>
+                <Modal
+                  aria-labelledby="modal-title"
+                  aria-describedby="modal-desc"
+                  open={open1}
+                  onClose={() => setOpen1(false)}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Sheet
+                    variant="outlined"
+                    sx={{
+                      width: "80%",
+                      borderRadius: "md",
+                      p: 3,
+                      boxShadow: "lg",
                     }}
-                  />
-                  <Button type="submit" value="submit" variant="outlined">
-                    Upload
-                  </Button>
-                </form>
-              </Sheet>
-            </Modal>
-          </section>
-          <hr/>
-          <br/><br/>
-        </p>
-      )}
+                  >
+                    <ModalClose variant="plain" sx={{ m: 1 }} />
+                    <Typography
+                      component="h2"
+                      id="modal-title"
+                      level="h4"
+                      textColor="inherit"
+                      fontWeight="lg"
+                      mb={1}
+                    >
+                      Upload Question Paper
+                    </Typography>
+                    <br />
+                    <br />
+                    <form onSubmit={AddNotes}>
+                      <input
+                        type="file"
+                        onChange={(event) => {
+                          setpdfUpload(event.target.files[0]);
+                        }}
+                      />
+                      <Button type="submit" value="submit" variant="outlined">
+                        Upload
+                      </Button>
+                    </form>
+                  </Sheet>
+                </Modal>
+                <p
+                  style={{ fontWeight: "bold", color: "#005A9C" }}
+                  onClick={() => setOpen2(true)}
+                >
+                  {" "}
+                  <EditNoteIcon style={{ verticalAlign: "-6px" }} /> Upload
+                  Assignment{" "}
+                </p>
+                <Modal
+                  aria-labelledby="modal-title"
+                  aria-describedby="modal-desc"
+                  open={open2}
+                  onClose={() => setOpen2(false)}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Sheet
+                    variant="outlined"
+                    sx={{
+                      maxWidth: 500,
+                      borderRadius: "md",
+                      p: 3,
+                      boxShadow: "lg",
+                    }}
+                  >
+                    <Typography
+                      component="h2"
+                      id="modal-title"
+                      level="h4"
+                      textColor="inherit"
+                      fontWeight="lg"
+                      mb={1}
+                    >
+                      Upload Assignments
+                    </Typography>
+
+                    <ModalClose variant="plain" sx={{ m: 1 }} />
+                    <form onSubmit={AddAnswerPaper}>
+                      <input
+                        type="file"
+                        onChange={(event) => {
+                          setpdfUpload2(event.target.files[0]);
+                        }}
+                      />
+                      <Button type="submit" value="submit" variant="outlined">
+                        Upload
+                      </Button>
+                    </form>
+                  </Sheet>
+                </Modal>
+              </section>
+              <hr />
+              <br />
+              <br />
+            </p>
+          )}
         </Box>
       </div>
       <br />
-
     </div>
   );
 };

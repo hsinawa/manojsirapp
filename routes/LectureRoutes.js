@@ -11,6 +11,7 @@ router.post("/addTest", async (req, res) => {
       standard: req.body.standard,
       comment: req.body.comment,
       link: req.body.link,
+      subject:req.body.subject
     });
 
     await enq.save();
@@ -26,6 +27,20 @@ router.post("/getall", async (req, res) => {
     const { stand } = req.body;
     const docs = await Lecture.find({ standard: stand });
 
+    res.send(docs);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Something Went Wrong" });
+  }
+});
+
+
+
+router.post("/getByClassAndSubject", async (req, res) => {
+  try {
+    const { stand , subject} = req.body;
+    const docs = await Lecture.find({ standard: stand, subject:subject , isValid:true });
+    console.log('Senfing docs', docs)
     res.send(docs);
   } catch (err) {
     console.error(err);

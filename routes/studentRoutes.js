@@ -169,11 +169,12 @@ router.post("/updateStatus", async (req, res) => {
 });
 
 router.post("/GetDescription", async (req, res) => {
+  console.log('Hereeee')
   try {
     const { studentid } = req.body;
 
     const Descriptiondata = await StudentSchema.find({ _id: studentid });
-
+    
     res.status(200).send(Descriptiondata);
   } catch (err) {
     return res.status(400).json({ message: `Something Went Wrong ${err} ` });

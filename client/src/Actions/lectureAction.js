@@ -38,6 +38,21 @@ export const GetALLLecturesClassAction = ({stand}) => (dispatch) => {
     });
 };
 
+
+export const GetLecturesByClassAction = ({stand,subject}) => (dispatch) => {
+  dispatch({ type: GetLecture_Req });
+  axios
+    .post(`${Lecture_API}/getByClassAndSubject`,{stand,subject})
+    .then((res) => {
+      dispatch({ type: GetLecture_Suc, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: GetLecture_Fail, payload: err });
+
+      window.location.href = "/error";
+    });
+};
+
 const UploadLecture_Req = "UploadLecture_Req";
 const UploadLecture_Suc = "UploadLecture_Suc";
 const UploadLecture_Fail = "UploadLecture_Fail";

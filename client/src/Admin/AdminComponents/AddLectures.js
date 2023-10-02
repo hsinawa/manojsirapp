@@ -10,7 +10,6 @@ import Select from "@mui/material/Select";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-
 const StyleDesign = {
   widthDesign: {
     width: "90%",
@@ -24,6 +23,7 @@ const AddVideoLecture = () => {
   const [link, setLink] = useState("");
   const [standard, setStandard] = useState("");
   const [comment, setComment] = useState("");
+  const [subject, setSubject] = useState("");
   const dispatch = useDispatch();
 
   const AddData = (e) => {
@@ -34,6 +34,7 @@ const AddVideoLecture = () => {
       link: link,
       standard: standard,
       comment: comment,
+      subject: subject,
     };
     dispatch(LecturesAddAction(data));
   };
@@ -44,97 +45,120 @@ const AddVideoLecture = () => {
         boxShadow: "5px 5px 10px #888888, -5px -5px 10px #888888",
       }}
     >
-     <form onSubmit={AddData} >
-<br/><br/>
-     <TextField
-                  id="outlined-basic"
-                  label="Enter Name"
-                  fullWidth
-                  variant="outlined"
-                  autoComplete="off"
-                  type="text"
-                  required
-                  style={{
-                    width: "90%",
-                  }}
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                  }}
-                />
+      <form onSubmit={AddData}>
+        <br />
+        <br />
+        <TextField
+          id="outlined-basic"
+          label="Enter Name"
+          fullWidth
+          variant="outlined"
+          autoComplete="off"
+          type="text"
+          required
+          style={{
+            width: "90%",
+          }}
+          value={name}
+          onChange={(e) => {
+            setName(e.target.value);
+          }}
+        />
 
-<br/><br/>
-     <TextField
-                  id="outlined-basic"
-                  label="Enter link"
-                  fullWidth
-                  variant="outlined"
-                  autoComplete="off"
-                  type="text"
-                  required
-                  style={{
-                    width: "90%",
-                  }}
-                  value={link}
-                  onChange={(e) => {
-                    setLink(e.target.value);
-                  }}
-                />
-<br/><br/>
-     <TextField
-                  id="outlined-basic"
-                  label="Enter Comment"
-                  fullWidth
-                  variant="outlined"
-                  autoComplete="off"
-                  type="text"
-                  required
-                  style={{
-                    width: "90%",
-                  }}
-                  value={comment}
-                  onChange={(e) => {
-                    setComment(e.target.value);
-                  }}
-                />
-                <br/><br/>
-                <FormControl style={StyleDesign.widthDesign}>
+        <br />
+        <br />
+        <TextField
+          id="outlined-basic"
+          label="Enter link"
+          fullWidth
+          variant="outlined"
+          autoComplete="off"
+          type="text"
+          required
+          style={{
+            width: "90%",
+          }}
+          value={link}
+          onChange={(e) => {
+            setLink(e.target.value);
+          }}
+        />
+        <br />
+        <br />
+        <TextField
+          id="outlined-basic"
+          label="Enter Comment"
+          fullWidth
+          variant="outlined"
+          autoComplete="off"
+          type="text"
+          required
+          style={{
+            width: "90%",
+          }}
+          value={comment}
+          onChange={(e) => {
+            setComment(e.target.value);
+          }}
+        />
+        <br />
+        <br />
+        <FormControl style={StyleDesign.widthDesign}>
+          <InputLabel id="demo-simple-select-label">Subject</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={subject}
+            label="Subject"
+            onChange={(e) => {
+              setSubject(e.target.value);
+            }}
+          >
+            <MenuItem value={"Physics"}>Physics</MenuItem>
+            <MenuItem value={"Chemistry"}>Chemistry</MenuItem>
+            <MenuItem value={"Biology"}>Biology</MenuItem>
+          </Select>
+        </FormControl>
+
+        <br />
+        <br />
+        <FormControl style={StyleDesign.widthDesign}>
           <InputLabel id="demo-simple-select-label">Standard</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={standard}
-            label="Subject"
+            label="Class"
             onChange={(e) => {
               setStandard(e.target.value);
             }}
           >
-            <MenuItem value={'9'}>IX</MenuItem>
-              <MenuItem value={'10'}>X</MenuItem>
-              <MenuItem value={'11'}>XI</MenuItem>
-              <MenuItem value={'12'}>XII</MenuItem>
+            <MenuItem value={"9"}>IX</MenuItem>
+            <MenuItem value={"10"}>X</MenuItem>
+            <MenuItem value={"11"}>XI</MenuItem>
+            <MenuItem value={"12"}>XII</MenuItem>
           </Select>
         </FormControl>
-<br/><br/><br/>
-     <Button
-                  variant="contained"
-                  value="submit"
-                  type="submit"
-                  style={{
-                    float: "left",
-                    backgroundColor: "#0C2340",
-                    width: "100%",
-                    marginLeft: "2%",
-                    fontSize: "20px",
-                    marginRight: "auto",
-                    marginLeft: "auto",
-                  }}
-                >
-                  Add
-                 
-                </Button>
-
-     </form>
+        <br />
+        <br />
+        <br />
+        <Button
+          variant="contained"
+          value="submit"
+          type="submit"
+          style={{
+            float: "left",
+            backgroundColor: "#0C2340",
+            width: "100%",
+            marginLeft: "2%",
+            fontSize: "20px",
+            marginRight: "auto",
+            marginLeft: "auto",
+          }}
+        >
+          Add
+        </Button>
+      </form>
     </div>
   );
 };
@@ -144,12 +168,9 @@ const AddLectures = () => {
   return (
     <div>
       <section style={StyleDesign.widthDesign}>
-     
-      <AddVideoLecture />
+        <AddVideoLecture />
         <br />
         <br />
-
-      
       </section>
     </div>
   );
