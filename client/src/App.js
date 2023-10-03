@@ -32,6 +32,7 @@ import LectureList from './Admin/AdminComponents/LecturesListAdmin';
 import StudentLectureCategory from './Screen/StudentLectureCategory';
 import CheckTestScreen from './Screen/CheckTestScreen';
 import EditStudents from './Student/EditStudents';
+import PerformnaceChart from './Component/PerformanceChartCreator';
 
 
 function App() {
@@ -56,6 +57,7 @@ function App() {
        {student&&(<Route path='/student/editprofile' element={<EditStudents/>} />)}
        {student&&(<Route path='/student/testschedule' element={<CheckTestScreen/>} />)}
        {student&&(<Route path='/student/:subject' element={<StudentLectureCategory/>} />)}
+       {student&&(<Route path='/student/performance' element={<PerformnaceChart/>} />)}
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>
        <Route path='/testdecription/:testid' element={<TestDescriptionScreen/>} ></Route>

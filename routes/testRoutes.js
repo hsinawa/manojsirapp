@@ -61,6 +61,36 @@ router.post("/getall", async (req, res) => {
   }
 });
 
+router.post("/getGraph", async (req, res) => {
+  
+  try {
+    const {stand} = req.body
+    const pipeline = [
+      {
+        $match: {
+          standard: parseInt(stand),
+          isValid: false,
+        },
+      },
+      {
+        $project: {
+          _id: 1,
+          name: 1,
+          MaxMarks: 1,
+          subject:1,
+          students:1
+        },
+      },
+    ];
+    const docs = await Test.aggregate(pipeline);
+
+    res.send(docs);
+  } catch (err) {
+    console.error(err);
+    res.status(400).json({ message: "Something Went Wrong" });
+  }
+});
+
 router.post("/addQuestionPaper", async (req, res) => {
   try {
     const updatedTask = await Test.findByIdAndUpdate(

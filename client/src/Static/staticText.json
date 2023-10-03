@@ -94,7 +94,9 @@
   } ,
 
   "Messages":{
-    "passreset":"To reset your password, please log out of your account and then proceed with the password reset process."
+    "passreset":"To reset your password, please log out of your account and then proceed with the password reset process.",
+    "error":"OOPs! Something Went Wrong",
+    "testMessage":"Your Performance Graph Will Be Shown Here"
   }
 
 }

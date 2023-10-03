@@ -38,6 +38,20 @@ export const GetAllTestAction = ({stand}) => (dispatch) => {
     });
 };
 
+export const GetAllTestGraphAction = ({stand}) => (dispatch) => {
+  dispatch({ type: GetTest_Req });
+  axios
+    .post(`${Test_API}/getGraph`,{stand})
+    .then((res) => {
+      dispatch({ type: GetTest_Suc, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: GetTest_Fail, payload: err });
+
+      window.location.href = "/error";
+    });
+};
+
 const UploadTest_Req = "UploadTest_Req";
 const UploadTest_Suc = "UploadTest_Suc";
 const UploadTest_Fail = "UploadTest_Fail";
