@@ -107,3 +107,25 @@ export const StudentUpdateAction =
         dispatch({ type: UpdateStudent_Fail, payload: err });
       });
   };
+
+
+
+const StudentLogout_Req = 'StudentLogout_Req';
+const StudentLogout_Suc = 'StudentLogout_Req';
+const StudentLogout_Fail = 'StudentLogout_Fail';
+
+export const StudentLogoutAction = ({studentid}) => (dispatch) => {
+  dispatch({ type: StudentLogout_Req });
+
+  axios
+    .post(`${Student_API}/logout`, {studentid})
+    .then((res) => {
+      dispatch({ type: StudentLogout_Suc });
+
+      localStorage.removeItem("student");
+      window.location.href = "/";
+    })
+    .catch((err) => {
+      dispatch({ type: StudentLogout_Fail, payload: err });
+    });
+};

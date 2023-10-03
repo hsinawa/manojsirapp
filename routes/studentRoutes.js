@@ -78,10 +78,11 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/logout", async (req, res) => {
-  const studentId = req.body.email;
+  const studentid = req.body.studentid;
+  
   try {
     const upadtedCount = await StudentSchema.findOneAndUpdate(
-      { email: studentId },
+      { _id: studentid },
       { $inc: { ActiveLogins: -1 } },
       { new: true }
     );
@@ -90,6 +91,7 @@ router.post("/logout", async (req, res) => {
       return res.status(400).json({ message: "ID not found" });
     }
 
+    
     return res.status(200).send({ message: "Logged Out Successfully" });
   } catch (err) {
     return res.status(400).json({ message: `Something Went Wrong ${err} ` });
@@ -169,7 +171,7 @@ router.post("/updateStatus", async (req, res) => {
 });
 
 router.post("/GetDescription", async (req, res) => {
-  console.log('Hereeee')
+ 
   try {
     const { studentid } = req.body;
 

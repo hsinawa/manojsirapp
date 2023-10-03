@@ -124,3 +124,36 @@ export const GetDescriptionStudentsReducer = (state = {  }, action) => {
       return state;
   }
 };
+
+
+
+const StudentLogout_Req = 'StudentLogout_Req';
+const StudentLogout_Suc = 'StudentLogout_Req';
+const StudentLogout_Fail = 'StudentLogout_Fail';
+
+export const LogoutStudentReducer = (state = {}, action) => {
+  switch (action.type) {
+    case StudentLogout_Req:
+      return {
+        ...state,
+        loadingLogOut: true,
+      };
+
+    case StudentLogout_Suc:
+      return {
+        ...state,
+        loadingLogOut: false,
+        success: true,
+      };
+
+    case StudentLogout_Fail:
+      return {
+        ...state,
+        loadingLogOut: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
