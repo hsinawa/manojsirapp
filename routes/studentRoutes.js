@@ -81,7 +81,7 @@ router.post("/logout", async (req, res) => {
   const studentid = req.body.studentid;
   
   try {
-    const upadtedCount = await StudentSchema.findOneAndUpdate(
+    const upadtedCount = await StudentSchema.findByIdAndUpdate(
       { _id: studentid },
       { $inc: { ActiveLogins: -1 } },
       { new: true }
