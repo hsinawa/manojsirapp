@@ -108,7 +108,7 @@ const LectureCard = ({ i }) => {
                   style={{
                     fontSize: "50px",
                     color: "#002D62",
-                    marginTop: "10px",
+                    marginTop: "30px",
                   }}
                 />{" "}
               </a>
@@ -121,7 +121,7 @@ const LectureCard = ({ i }) => {
                     {" "}
                     {i.name}{" "}
                   </h3>
-                  <h5 style={{ color: "#4B9CD3" }}> Class : {i.standard} </h5>
+                  <h5 style={{ color: "#4B9CD3" }}> Class : {i.standard}th {i?.subject} </h5>
                   <p style={{ color: "#073980" }}> {i.comment} </p>
                   {i?.notesURL?.length > 0 && (
                     <p>
