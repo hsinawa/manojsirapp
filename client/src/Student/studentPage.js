@@ -22,6 +22,8 @@ import CallIcon from "@mui/icons-material/Call";
 import SchoolIcon from "@mui/icons-material/School";
 import LoginIcon from "@mui/icons-material/Login";
 import LogoutIcon from "@mui/icons-material/Logout";
+import EditIcon from '@mui/icons-material/Edit';
+import EventNoteIcon from '@mui/icons-material/EventNote';
 
 //Images
 import physics from "../Images/physics.png";
@@ -125,17 +127,21 @@ const StudentPage = () => {
                   <section className="threeGrid">
                     <Button
                       variant="outlined"
-                      href="/result"
+                      href="/student/editprofile"
                       style={Styles.MUIButtons}
                     >
-                      My Profile
+                    <EditIcon
+                        style={{ verticalAlign: "-6px" }}
+                      />  Edit Profile
                     </Button>
                     <Button
                       variant="outlined"
-                      href="/result"
+                      href="/student/testschedule"
                       style={Styles.MUIButtons}
                     >
-                      Test Schedule
+                     <EventNoteIcon
+                        style={{ verticalAlign: "-6px" }}
+                      />  Test Schedule
                     </Button>
                     <Button
                       variant="outlined"

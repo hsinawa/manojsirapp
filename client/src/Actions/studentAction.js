@@ -109,6 +109,23 @@ export const StudentUpdateAction =
   };
 
 
+  export const StudentUpdateProfileAction =
+  ({ AccountStatus, studentid }) =>
+  (dispatch) => {
+    dispatch({ type: UpdateStudent_Req });
+    axios
+      .post(`${Student_API}/updateProfile`, { AccountStatus, studentid })
+      .then((res) => {
+        dispatch({ type: UpdateStudent_Suc, payload: res.data });
+        alert("Updated");
+        window.location.reload();
+      })
+      .catch((err) => {
+        dispatch({ type: UpdateStudent_Fail, payload: err });
+      });
+  };
+
+
 
 const StudentLogout_Req = 'StudentLogout_Req';
 const StudentLogout_Suc = 'StudentLogout_Req';

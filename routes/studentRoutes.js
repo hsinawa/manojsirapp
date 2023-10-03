@@ -170,6 +170,34 @@ router.post("/updateStatus", async (req, res) => {
   }
 });
 
+
+
+
+router.post("/updateProfile", async (req, res) => {
+  try {
+    const id = req.body.studentid;
+    console.log('Accounts updates are', req.body,'--------', req.body.AccountStatus)
+    const UpdatedStatus = await StudentSchema.findByIdAndUpdate(
+      { _id: id },
+      {
+        email: req.body.AccountStatus.email,
+        standard:req.body.AccountStatus.stand,
+        contactnumber:req.body.AccountStatus.contactNumber,
+        schoolName:req.body.AccountStatus.schoolName
+      }
+    );
+    if (!UpdatedStatus) {
+      return res.status(400).json({ message: "Could not update" });
+    }
+
+    return res.status(200).send({ message: "Updated Successfully" });
+  } catch (err) {
+    return res.status(400).json({ message: `Something Went Wrong ${err} ` });
+  }
+});
+
+
+
 router.post("/GetDescription", async (req, res) => {
  
   try {

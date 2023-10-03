@@ -289,10 +289,14 @@ const TestCard = ({ i }) => {
    {" "}
    Update{" "}
  </Button>
+
+
+<br/><br/>
+<hr />
 </form>
       )}
      
-      <br /> <hr />
+      <br /> 
       <br />
     </div>
   );

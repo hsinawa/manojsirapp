@@ -99,6 +99,7 @@ const TestSchema = mongoose.Schema(
           default: 0,
           require,
         },
+       
       },
     ],
   },
@@ -107,7 +108,12 @@ const TestSchema = mongoose.Schema(
   }
 );
 
+
+
 const Test = mongoose.model("Test", TestSchema);
+
+
+
 
 module.exports = Test;
 

@@ -91,7 +91,10 @@
     "admin":{
       "table":[ "S.NO", "name", "status", "Date", "Watch More" ]
     }
-  } 
+  } ,
 
+  "Messages":{
+    "passreset":"To reset your password, please log out of your account and then proceed with the password reset process."
+  }
 
 }

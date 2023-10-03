@@ -30,6 +30,8 @@ import TestDescriptionScreen from './Component/TestDescription';
 import AddLectures from './Admin/AdminComponents/AddLectures';
 import LectureList from './Admin/AdminComponents/LecturesListAdmin';
 import StudentLectureCategory from './Screen/StudentLectureCategory';
+import CheckTestScreen from './Screen/CheckTestScreen';
+import EditStudents from './Student/EditStudents';
 
 
 function App() {
@@ -51,6 +53,8 @@ function App() {
        <Route path='/developer' element={<AboutDeveloper/>} ></Route>
        <Route path='/reviews' element={<ReviewScreen/>} ></Route>
        {student&&(<Route path='/student' element={<StudentPage/>} />)}
+       {student&&(<Route path='/student/editprofile' element={<EditStudents/>} />)}
+       {student&&(<Route path='/student/testschedule' element={<CheckTestScreen/>} />)}
        {student&&(<Route path='/student/:subject' element={<StudentLectureCategory/>} />)}
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>
