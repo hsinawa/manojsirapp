@@ -10,6 +10,14 @@ import GridCard from '../Component/Cards'
 //MUI & Design
 import Alert from '@mui/material/Alert';
 import '../Styles/studentStyle.css'
+//Static
+import profile from "../Images/profile.png";
+
+//MUI Icons
+import EmailIcon from "@mui/icons-material/Email";
+import CallIcon from "@mui/icons-material/Call";
+import SchoolIcon from "@mui/icons-material/School";
+import LoginIcon from "@mui/icons-material/Login";
 
 //Images
 import physics from '../Images/physics.png'
@@ -63,6 +71,49 @@ const StudentPage = () => {
 <>
 {students[0]?.isAccountValid?(
     <>
+     <div className="profile-container">
+          <div className="profile-header">
+            <img
+              src={profile}
+              alt={"User Profile"}
+              className="profile-picture"
+            />
+            <h1 className="profile-name">
+              {students[0]?.name} | Class {students[0]?.standard}{" "}
+            </h1>
+            <h4>
+              {" "}
+              Account Status:{" "}
+              {students[0].isAccountValid ? (
+                <span style={{ color: "green" }}> Active </span>
+              ) : (
+                <span style={{ color: "red" }}> Deactivated </span>
+              )}{" "}
+            </h4>
+            <br />
+            <SchoolIcon style={{ verticalAlign: "-6px" }} />{" "}
+            {students[0]?.schoolName}
+            <br />
+            <a
+              href={`tel:+91${students[0]?.contactnumber}`}
+              style={{ textDecoration: "none", color: "#333" }}
+            >
+              <CallIcon style={{ verticalAlign: "-6px" }} />{" "}
+              {students[0]?.contactnumber}
+            </a>{" "}
+            |{" "}
+            <a
+              href={`mailto:${students[0]?.email}`}
+              style={{ textDecoration: "none", color: "#333" }}
+            >
+              <EmailIcon style={{ verticalAlign: "-6px" }} />{" "}
+              {students[0]?.email}
+            </a>
+          </div>
+
+          <br />
+         
+        </div>
      <section className='threeGrid' >
                 {
                     SubjectBoard?.map((i,key)=>{

@@ -40,7 +40,7 @@ router.post("/getByClassAndSubject", async (req, res) => {
   try {
     const { stand , subject} = req.body;
     const docs = await Lecture.find({ standard: stand, subject:subject , isValid:true });
-    console.log('Senfing docs', docs)
+   
     res.send(docs);
   } catch (err) {
     console.error(err);

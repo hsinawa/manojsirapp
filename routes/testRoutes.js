@@ -49,7 +49,7 @@ router.post("/addTest", async (req, res) => {
 });
 
 router.post("/getall", async (req, res) => {
-  console.log('Reached Here')
+  
   try {
     const {stand} = req.body
     const docs = await Test.find({standard:stand});
