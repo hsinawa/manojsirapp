@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6aa7f7b9.css",
+    "main.js": "/static/js/main.4036025e.js",
+    "static/media/sideimage.gif": "/static/media/sideimage.f4797b0907b37cbd20a4.gif",
+    "static/media/bg.gif": "/static/media/bg.31bf97fe1e95d959a301.gif",
+    "static/media/biology.png": "/static/media/biology.7a75d816f1e577dfea04.png",
+    "static/media/physics.png": "/static/media/physics.63f89236b18cae956763.png",
+    "static/media/chemistry.png": "/static/media/chemistry.87174a7d3adaf64d8d23.png",
+    "static/media/results.png": "/static/media/results.79933058df8e904f9d1d.png",
+    "static/media/elearn.png": "/static/media/elearn.af9853e57d7c3e086b8c.png",
+    "static/media/prof.png": "/static/media/prof.17dcde9f77103ba25fc1.png",
+    "static/media/testimonials.png": "/static/media/testimonials.e1729486ea14b4ba8ad3.png",
+    "static/media/whyus.png": "/static/media/whyus.ca280528721eb0ca5656.png",
+    "static/media/am.png": "/static/media/am.dc84ba9f2f0ae996b3a5.png",
+    "static/media/logo.jpg": "/static/media/logo.7ff6c718b1061650842b.jpg",
+    "static/media/profile.png": "/static/media/profile.5e09f530452745fb2855.png",
+    "static/media/trial.png": "/static/media/trial.eb4a91a4892829beb031.png",
+    "static/media/youtube.png": "/static/media/youtube.52c9fca67f0548b8ef21.png",
+    "static/media/error.webp": "/static/media/error.c5c250880769b6b233f9.webp",
+    "static/media/rev2.png": "/static/media/rev2.90fc14a2e70102b1ac51.png",
+    "static/media/reviews.png": "/static/media/reviews.ea36927b4559e2997ec3.png",
+    "static/media/students.avif": "/static/media/students.07dc208277a972b2d072.avif",
+    "static/media/schedule.avif": "/static/media/schedule.46027932b33004d7ee13.avif",
+    "static/media/test.avif": "/static/media/test.d4234f8407624a869d62.avif",
+    "index.html": "/index.html",
+    "main.6aa7f7b9.css.map": "/static/css/main.6aa7f7b9.css.map",
+    "main.4036025e.js.map": "/static/js/main.4036025e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6aa7f7b9.css",
+    "static/js/main.4036025e.js"
+  ]
+}

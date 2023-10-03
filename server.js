@@ -27,11 +27,11 @@ app.use("/api/reviews/", ReviewRoutes);
 app.use("/api/lecture/", LectureRouter);
 app.use("/api/test/", TestRouter);
 
-// app.use(express.static(path.join(__dirname, "./client/build")));
+app.use(express.static(path.join(__dirname, "./client/build")));
 
-// app.get("*", function (req, res) {
-//   res.sendFile(path.join(__dirname, "./client/build/index.html"));
-// });
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 const port = process.env.PORT || 2988;
 
