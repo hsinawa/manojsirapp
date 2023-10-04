@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const StudentSchema = require("../models/studentModel");
 var requestIp = require("request-ip");
+const nodemailer = require("nodemailer");
 
 router.post("/register", async (req, res) => {
   try {
@@ -22,6 +23,91 @@ router.post("/register", async (req, res) => {
         schoolName: req.body.schoolName,
       });
       await student.save();
+
+      const HTMLtemplate = `
+      <html>
+      <head>
+        <meta charset="utf-8">
+        <title>Conncted with Concept2Education</title>
+        <!-- Inline CSS styles for email client compatibility -->
+        <style>
+          body, html {
+            margin: 0;
+            padding: 0;
+          }
+          body {
+            background-color: #f4f4f4;
+          }
+         .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+          }
+         .header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px 5px 0 0;
+          }
+          .content {
+            padding: 20px;
+          }
+          a {
+            color: #007bff;
+            text-decoration: none;
+          }
+          .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+          }
+        </style>
+      </head>
+      <body>
+        <div class="email-container">
+          <div class="header">
+            <h1>Account Created Successfully!</h1>
+          </div>
+          <div class="content">
+            <p>Hello, ${req.body.name}! Your Account has been created Successfully, You'll be able to use your account once it has been validated by admin. </p>
+            <p>Stay Safe!</p>
+            <p>Concept CLasses</p>
+          </div>
+        </div>
+      </body>
+      </html>
+      `
+
+      const msg = {
+        from: process.env.EMAIL_ID,
+        to: `${req.body.email}`,
+        subject: `New Account Created!`,
+        html:HTMLtemplate,
+      };
+      nodemailer
+        .createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.EMAIL_ID,
+            pass: process.env.EMAIL_KEY,
+          },
+          port: 465,
+          host: `smtp.gmail.com`,
+        })
+        .sendMail(msg, (err) => {
+          if (err) {
+            console.log("Error is", err);
+          } else {
+            console.log("Email sent to", req.body.email);
+          }
+        });
+  
 
       return res.send({ message: "Registration Successful" });
     }
@@ -204,18 +290,18 @@ router.post("/updateProfile", async (req, res) => {
 router.post("/passWordUpdate", async (req, res) => {
   try {
     const {studentphoneNumber, newPassword} = req.body;
-    console.log('body is', req.body)
+    
     const UpdatedStatus = await StudentSchema.findOneAndUpdate(
-      { contactNumber: studentphoneNumber },
+      { contactNumber: studentphoneNumber , isAccountValid:true},
       {
         password:newPassword
       },
       {new:true}
     );
 
-    console.log('Updateeeee')
+    
     if (!UpdatedStatus) {
-      console.log('ERRR')
+     
       return res.status(400).json({ message: "Could not update" });
     }
 
