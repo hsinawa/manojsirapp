@@ -182,6 +182,22 @@ const StudentPage = () => {
               <br />
               <br />
               <Alert severity="info">Your Account is not Validated </Alert>
+              <br/><br/>
+              <Button
+                      variant="outlined"
+                      color="error"
+                      style={Styles.MUIButtons}
+                      onClick={(e) => {
+                        dispatch(StudentLogoutAction({ studentid }));
+                      }}
+                    >
+                      {" "}
+                      <LogoutIcon
+                        style={{ verticalAlign: "-6px", color: "red" }}
+                      />{" "}
+                      {loadingLogOut? (<CircularProgress style={{color:'red'}} />):('LOGOUT')}
+                    
+                    </Button>
             </>
           )}
         </>

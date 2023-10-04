@@ -64,7 +64,7 @@ const ResetPasswordDetails = () => {
   };
 
 
-  const {loading,success} = useSelector(state=>state.UpdatePasswordStudentReducer)
+  const {loading,success,error} = useSelector(state=>state.UpdatePasswordStudentReducer)
 
   return (
     <div>
@@ -152,6 +152,7 @@ const ResetPasswordDetails = () => {
         <br />
         {passerr && <Alert severity="error">Passwords Didn't Match</Alert>}
         {success&&(<Alert severity="success">Password Updated! Please login</Alert>)}
+        {error && <Alert severity="error">OOPS! Can't Update for this Number</Alert>}
       </section>
     </div>
   );

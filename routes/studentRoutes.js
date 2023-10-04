@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 const StudentSchema = require("../models/studentModel");
 var requestIp = require("request-ip");
 const nodemailer = require("nodemailer");
+const crypto = require("crypto")
+let algorithm = "sha256"
 
 router.post("/register", async (req, res) => {
   try {
@@ -14,10 +16,11 @@ router.post("/register", async (req, res) => {
     if (existingStudent) {
       return res.status(400).send({ message: "Email Already Registered" });
     } else {
+      let encryptedPassword = crypto.createHash(algorithm).update(req.body.password).digest("hex")
       const student = new StudentSchema({
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password,
+        password: encryptedPassword,
         contactnumber: req.body.contactnumber,
         standard: req.body.standard,
         schoolName: req.body.schoolName,
@@ -121,9 +124,10 @@ router.post("/login", async (req, res) => {
   const studentIp = requestIp.getClientIp(req);
 
   try {
+    let encryptedPassword = crypto.createHash(algorithm).update(req.body.password).digest("hex")
     const docs = await StudentSchema.find({
       email: req.body.email,
-      password: req.body.password,
+      password: encryptedPassword,
     });
 
     if (docs.length > 0) {
@@ -290,13 +294,13 @@ router.post("/updateProfile", async (req, res) => {
 router.post("/passWordUpdate", async (req, res) => {
   try {
     const {studentphoneNumber, newPassword} = req.body;
-    
+    let encryptedPassword = crypto.createHash(algorithm).update(newPassword).digest("hex")
     const UpdatedStatus = await StudentSchema.findOneAndUpdate(
       { contactNumber: studentphoneNumber , isAccountValid:true},
       {
-        password:newPassword
-      },
-      {new:true}
+        password:encryptedPassword
+      }
+     
     );
 
     

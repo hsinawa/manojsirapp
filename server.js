@@ -17,6 +17,10 @@ const ReviewRoutes = require("./routes/reviewRoute");
 const LectureRouter = require('./routes/LectureRoutes')
 const TestRouter = require('./routes/testRoutes')
 
+
+
+
+
 app.use("/api/admin/", AdminRoute);
 app.use("/api/message/", messageRoute);
 app.use("/api/task/", taskRoutes);
