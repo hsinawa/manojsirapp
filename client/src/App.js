@@ -33,11 +33,18 @@ import StudentLectureCategory from './Screen/StudentLectureCategory';
 import CheckTestScreen from './Screen/CheckTestScreen';
 import EditStudents from './Student/EditStudents';
 import PerformnaceChart from './Component/PerformanceChartCreator';
+import ForgetPassword from './Screen/ForgotPassword';
+import ResetPasswordDetails from './Screen/resetDetails';
+
 
 
 function App() {
   const admin = localStorage.getItem('admin')
   const student = localStorage.getItem('student')
+  const details = sessionStorage.getItem('Details')
+
+
+
   return (
     <div className="App">
     
@@ -53,11 +60,13 @@ function App() {
        <Route path='/register' element={<RegisterStudent/>} ></Route>
        <Route path='/developer' element={<AboutDeveloper/>} ></Route>
        <Route path='/reviews' element={<ReviewScreen/>} ></Route>
+       <Route path='/reset' element={<ForgetPassword/>} ></Route>
        {student&&(<Route path='/student' element={<StudentPage/>} />)}
        {student&&(<Route path='/student/editprofile' element={<EditStudents/>} />)}
        {student&&(<Route path='/student/testschedule' element={<CheckTestScreen/>} />)}
        {student&&(<Route path='/student/:subject' element={<StudentLectureCategory/>} />)}
        {student&&(<Route path='/student/performance' element={<PerformnaceChart/>} />)}
+       {details&&(<Route path='/resetDetails' element={<ResetPasswordDetails/>} />)}
        <Route path='/success' element={<SuccessPage/>} ></Route>
        <Route path='/error' element={<ErrorPage/>} ></Route>
        <Route path='/testdecription/:testid' element={<TestDescriptionScreen/>} ></Route>

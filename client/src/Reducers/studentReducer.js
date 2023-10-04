@@ -127,6 +127,39 @@ export const GetDescriptionStudentsReducer = (state = {  }, action) => {
 
 
 
+const PUpdateStudent_Req = "PUpdateStudent_Req";
+const PUpdateStudent_Suc = "PUpdateStudent_Suc";
+const PUpdateStudent_Fail = "PUpdateStudent_Fail";
+
+
+export const UpdatePasswordStudentReducer = ( state= {}, action ) =>{
+  switch (action.type) {
+    case PUpdateStudent_Req :
+      return {
+        ...state,
+        loading: true,
+      };
+
+    case PUpdateStudent_Suc:
+      return {
+        ...state,
+        loading: false,
+        success: true,
+      };
+
+    case PUpdateStudent_Fail:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+}
+
+
 const StudentLogout_Req = 'StudentLogout_Req';
 const StudentLogout_Suc = 'StudentLogout_Req';
 const StudentLogout_Fail = 'StudentLogout_Fail';

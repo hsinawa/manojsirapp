@@ -15,7 +15,8 @@ import {
   StudentLoginReducer,
   GetAllStudentsReducer,
   GetDescriptionStudentsReducer,
-  LogoutStudentReducer
+  LogoutStudentReducer,
+  UpdatePasswordStudentReducer
 } from "./Reducers/studentReducer";
 import {
   ReviewReducer,
@@ -54,7 +55,8 @@ const FinalReducer = combineReducers({
   GetDescriptionTestsReducer: GetDescriptionTestsReducer,
   AddLectureReducer:AddLectureReducer,
   GetAllLectureReducer:GetAllLectureReducer,
-  LogoutStudentReducer:LogoutStudentReducer
+  LogoutStudentReducer:LogoutStudentReducer,
+  UpdatePasswordStudentReducer:UpdatePasswordStudentReducer
 });
 
 const InitialState = {};

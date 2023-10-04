@@ -126,6 +126,29 @@ export const StudentUpdateAction =
   };
 
 
+  const PUpdateStudent_Req = "PUpdateStudent_Req";
+const PUpdateStudent_Suc = "PUpdateStudent_Suc";
+const PUpdateStudent_Fail = "PUpdateStudent_Fail";
+
+  export const StudentPasswordUpdateAction =
+  ({ studentphoneNumber, newPassword }) =>
+  (dispatch) => {
+    dispatch({ type: PUpdateStudent_Req });
+    axios
+      .post(`${Student_API}/passWordUpdate`, { studentphoneNumber, newPassword })
+      .then((res) => {
+        dispatch({ type: PUpdateStudent_Suc, payload: res.data });
+       
+        setTimeout( ()=>{
+          window.location.href='/login';
+        }, 3000 )
+        
+      })
+      .catch((err) => {
+        dispatch({ type: PUpdateStudent_Fail, payload: err });
+      });
+  };
+
 
 const StudentLogout_Req = 'StudentLogout_Req';
 const StudentLogout_Suc = 'StudentLogout_Req';
