@@ -82,8 +82,8 @@ const StudentList = () => {
                   return val.isAccountValid === true;
                 } else if (SearchTerm == 2) {
                   return val.isAccountValid === false;
-                } else if (val.standard.includes(SearchTerm)) {
-                  return val;
+                } else  {
+                  return val.standard === SearchTerm;
                 }
               }).filter((val) => {
                 if (searchName == '') {
