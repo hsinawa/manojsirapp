@@ -13,7 +13,7 @@ const Testimonials = () => {
             name: "Mahima Negi",
             value:5,
             comment:
-            "Manoj Sir, an outstanding math teacher, helped me score 95 in my 10th boards with his clear and engaging teaching style!"
+            "Manoj Sir, an outstanding science teacher, helped me score 95 in my 10th boards with his clear and engaging teaching style!"
           },
           
         {

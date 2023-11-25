@@ -97,6 +97,19 @@
     "passreset":"To reset your password, please log out of your account and then proceed with the password reset process.",
     "error":"OOPs! Something Went Wrong",
     "testMessage":"Your Performance Graph Will Be Shown Here"
+  },
+  "ClassXChapters":{
+    "Physics":[
+      "Light-Reflection and Refraction", "The Human Eye And The Colourful World", "Electricity", "Magnetic Effects Of Electric Current", "Sources Of Energy", "Our Environment", "Management of Natural Resources"
+    ],
+    "Chemistry":["Chemical Reactions and Equations" , "Acids, Bases and Salts", "Metals and Non-metals", "Carbon and its Compounds", "Periodic Classification of Elements" ] ,
+    "Biology":[ "Life Process", "Control and Coordination", "How do Organisms Reproduce?", "Heredity", "Our Environment" ]
+  } ,
+
+  "ClassIXChapters":{
+    "Physics":["Motion", "Force And Laws Of Motion", "Gravitation", "Work and Energy", "Sound" ],
+    "Chemistry":["Matter in our surroundings" , "Is matter around us pure?", "Atoms and Molecules", "Structure of the Atom" ],
+    "Biology":[ "Fundamental Unit of Life", "Tissues", "Diversity in Living Organisms", "Why do we fall ill", "Natural Resources", "Improvement in Food Resources" ]
   }
 
 }

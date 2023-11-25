@@ -11,7 +11,8 @@ router.post("/addTest", async (req, res) => {
       standard: req.body.standard,
       comment: req.body.comment,
       link: req.body.link,
-      subject:req.body.subject
+      subject:req.body.subject,
+      chapterName:req.body.chapter
     });
 
     await enq.save();
